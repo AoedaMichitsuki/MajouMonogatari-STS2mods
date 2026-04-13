@@ -1,0 +1,13 @@
+.idea/
+*.iml
+out/
+bin/
+obj/
+target/
+build/
+.DS_Store
+*.log
+.env
+.gradle/
+build/
+target/
