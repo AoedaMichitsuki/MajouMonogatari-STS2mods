@@ -1,0 +1,26 @@
+<Project Sdk="Godot.NET.Sdk/4.6.2">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\Library\Application Support\Steam\steamapps\common\Slay the Spire 2\SlayTheSpire2.app\Contents\Resources\data_sts2_macos_arm64\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="BaseLib">
+      <HintPath>..\..\Unity Project\sidewinder\Baselib\BaseLib.dll</HintPath>
+    </Reference>
+    <Reference Include="sts2">
+      <HintPath>..\..\Library\Application Support\Steam\steamapps\common\Slay the Spire 2\SlayTheSpire2.app\Contents\Resources\data_sts2_macos_arm64\sts2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="docs\mechanics\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="docs\Look_At_Me_If_U_Are_AI.md" />
+    <Content Include="docs\希塞莉 卡表0.0.9.txt" />
+    <Content Include=".gitignore" />
+  </ItemGroup>
+</Project>
