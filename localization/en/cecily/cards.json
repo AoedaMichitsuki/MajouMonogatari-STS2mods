@@ -1,0 +1,10 @@
+{
+  "majoumonogatari-sts2mods.cecily.strike.title": "Strike",
+  "majoumonogatari-sts2mods.cecily.strike.description": "Deal {Damage:diff()} damage.",
+  "majoumonogatari-sts2mods.cecily.defend.title": "Defend",
+  "majoumonogatari-sts2mods.cecily.defend.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "majoumonogatari-sts2mods.cecily.wind_bullet.title": "Wind Bullet",
+  "majoumonogatari-sts2mods.cecily.wind_bullet.description": "Deal damage equal to {Damage:diff()} plus your current [gold]Breeze[/gold]. Then lose [blue]2[/blue] [gold]Breeze[/gold].",
+  "majoumonogatari-sts2mods.cecily.spring_tuft.title": "Spring Tuft",
+  "majoumonogatari-sts2mods.cecily.spring_tuft.description": "Gain {Block:diff()} [gold]Block[/gold] {Repeat:diff()} times."
+}

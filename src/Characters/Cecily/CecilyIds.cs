@@ -10,6 +10,7 @@ public static class CecilyIds
 {
     /// <summary>角色主 ID。</summary>
     public const string Character = "majoumonogatari-sts2mods.cecily";
+    public const string PlaceholderCharacter = "silent";
 
     /// <summary>卡池与遗物池 ID。</summary>
     public const string CardPool = Character + ".cards";

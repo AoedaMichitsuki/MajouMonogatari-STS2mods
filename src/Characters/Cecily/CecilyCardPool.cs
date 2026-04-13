@@ -1,4 +1,5 @@
 using BaseLib.Abstracts;
+using BaseLib.Utils.Attributes;
 using Godot;
 using MajouMonogatari_STS2mods.Shared.ArtController;
 
@@ -11,6 +12,7 @@ namespace MajouMonogatari_STS2mods.Characters.Cecily;
 /// - 牌库入口颜色
 /// - 能量图标路径
 /// </summary>
+[CustomID(CecilyIds.CardPool)]
 public sealed class CecilyCardPool : CustomCardPoolModel
 {
     /// <summary>
@@ -39,6 +41,9 @@ public sealed class CecilyCardPool : CustomCardPoolModel
     /// <summary>
     /// 卡牌能量图标资源。
     /// </summary>
-    public override string BigEnergyIconPath => CecilyArtProvider.Instance.CardBigEnergyIconPath;
-    public override string TextEnergyIconPath => CecilyArtProvider.Instance.CardTextEnergyIconPath;
+    public override string BigEnergyIconPath =>
+        AssetPathUtil.ResolveOrFallback(CecilyArtProvider.Instance.CardBigEnergyIconPath, base.BigEnergyIconPath);
+
+    public override string TextEnergyIconPath =>
+        AssetPathUtil.ResolveOrFallback(CecilyArtProvider.Instance.CardTextEnergyIconPath, base.TextEnergyIconPath);
 }

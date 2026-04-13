@@ -1,0 +1,10 @@
+{
+  "majoumonogatari-sts2mods.cecily.strike.title": "打击",
+  "majoumonogatari-sts2mods.cecily.strike.description": "造成 {Damage:diff()} 点伤害。",
+  "majoumonogatari-sts2mods.cecily.defend.title": "防御",
+  "majoumonogatari-sts2mods.cecily.defend.description": "获得 {Block:diff()} 点[gold]格挡[/gold]。",
+  "majoumonogatari-sts2mods.cecily.wind_bullet.title": "风弹",
+  "majoumonogatari-sts2mods.cecily.wind_bullet.description": "造成等同于 {Damage:diff()} + 当前[gold]微风[/gold]层数的伤害。然后失去 [blue]2[/blue] 点[gold]微风[/gold]。",
+  "majoumonogatari-sts2mods.cecily.spring_tuft.title": "春絮",
+  "majoumonogatari-sts2mods.cecily.spring_tuft.description": "获得 {Block:diff()} 点[gold]格挡[/gold]，重复 {Repeat:diff()} 次。"
+}

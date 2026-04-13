@@ -11,12 +11,12 @@ config_version=5
 [application]
 
 config/name="MajouMonogatari-STS2mods"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
-project/assembly_name="MajouMonogatari-STS2mods"
+project/assembly_name="majoumonogatari-sts2mods"
 
 [physics]
 
@@ -25,3 +25,4 @@ project/assembly_name="MajouMonogatari-STS2mods"
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+textures/vram_compression/import_etc2_astc=true
