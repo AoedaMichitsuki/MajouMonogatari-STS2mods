@@ -4,15 +4,5 @@
   "majoumonogatari-sts2mods.keyword.flow_left.title": "流场（左）",
   "majoumonogatari-sts2mods.keyword.flow_left.description": "当此牌从手牌最左侧打出时触发。",
   "majoumonogatari-sts2mods.keyword.flow_right.title": "流场（右）",
-  "majoumonogatari-sts2mods.keyword.flow_right.description": "当此牌从手牌最右侧打出时触发。",
-  "majoumonogatari-sts2mods.keyword.flow_empty.title": "流场（空）",
-  "majoumonogatari-sts2mods.keyword.flow_empty.description": "当打出此牌时你的手牌中仅有这1张牌，则触发。",
-  "majoumonogatari-sts2mods.keyword.link.title": "连接",
-  "majoumonogatari-sts2mods.keyword.link.description": "当此牌与本回合你打出的上一张牌类型相同时触发。",
-  "majoumonogatari-sts2mods.keyword.chant.title": "咏唱",
-  "majoumonogatari-sts2mods.keyword.chant.description": "打出后，此牌回到手牌最右侧并进入锁定。若回合结束时仍在手中，则在下回合开始时结算效果。",
-  "majoumonogatari-sts2mods.keyword.locked.title": "锁定",
-  "majoumonogatari-sts2mods.keyword.locked.description": "本回合无法打出这张牌，且该牌获得保留。",
-  "majoumonogatari-sts2mods.keyword.shift.title": "平移",
-  "majoumonogatari-sts2mods.keyword.shift.description": "将手牌中的一张牌向左或向右移动指定位置数。"
+  "majoumonogatari-sts2mods.keyword.flow_right.description": "当此牌从手牌最右侧打出时触发。"
 }

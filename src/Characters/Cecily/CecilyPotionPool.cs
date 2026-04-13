@@ -5,8 +5,8 @@ using MajouMonogatari_STS2mods.Shared.Art;
 
 namespace MajouMonogatari_STS2mods.Characters.Cecily;
 
-[CustomID(CecilyIds.RelicPool)]
-public class CecilyRelicPool : CustomRelicPoolModel
+[CustomID(CecilyIds.PotionPool)]
+public class CecilyPotionPool : CustomPotionPoolModel
 {
     public override Color LabOutlineColor => CecilyCharacter.CecilyColor;
     public override string BigEnergyIconPath =>

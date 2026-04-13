@@ -18,6 +18,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="docs\mechanics\" />
+    <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="docs\Look_At_Me_If_U_Are_AI.md" />

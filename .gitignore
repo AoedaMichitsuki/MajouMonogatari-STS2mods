@@ -11,3 +11,5 @@ build/
 .gradle/
 build/
 target/
+.godot
+*.pck

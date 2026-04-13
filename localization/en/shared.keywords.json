@@ -4,15 +4,5 @@
   "majoumonogatari-sts2mods.keyword.flow_left.title": "Flow (Left)",
   "majoumonogatari-sts2mods.keyword.flow_left.description": "Triggers when this card is played from the leftmost position in your hand.",
   "majoumonogatari-sts2mods.keyword.flow_right.title": "Flow (Right)",
-  "majoumonogatari-sts2mods.keyword.flow_right.description": "Triggers when this card is played from the rightmost position in your hand.",
-  "majoumonogatari-sts2mods.keyword.flow_empty.title": "Flow (Empty)",
-  "majoumonogatari-sts2mods.keyword.flow_empty.description": "Triggers when this is the only card in your hand as it is played.",
-  "majoumonogatari-sts2mods.keyword.link.title": "Link",
-  "majoumonogatari-sts2mods.keyword.link.description": "Triggers when this card has the same type as the last card you played this turn.",
-  "majoumonogatari-sts2mods.keyword.chant.title": "Chant",
-  "majoumonogatari-sts2mods.keyword.chant.description": "After being played, this card returns to the right side of your hand and is Locked. If it remains in hand at end of turn, it resolves at the start of your next turn.",
-  "majoumonogatari-sts2mods.keyword.locked.title": "Locked",
-  "majoumonogatari-sts2mods.keyword.locked.description": "This card cannot be played this turn and is retained.",
-  "majoumonogatari-sts2mods.keyword.shift.title": "Shift",
-  "majoumonogatari-sts2mods.keyword.shift.description": "Move a card left or right by the specified number of positions in hand."
+  "majoumonogatari-sts2mods.keyword.flow_right.description": "Triggers when this card is played from the rightmost position in your hand."
 }
