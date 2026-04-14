@@ -5,7 +5,12 @@ namespace MajouMonogatari_STS2mods.Characters.Cecily.Powers;
 
 public abstract class CecilyPower : CustomPowerModel
 {
-    public override string CustomPackedIconPath => CecilyArtProvider.Instance.GetPowerSmallIconPath(Id.Entry);
-    public override string CustomBigIconPath => CecilyArtProvider.Instance.GetPowerBigIconPath(Id.Entry);
-    public override string CustomBigBetaIconPath => CecilyArtProvider.Instance.GetPowerBigIconPath(Id.Entry);
+    public override string CustomPackedIconPath =>
+        AssetPathUtil.ResolveOrFallback(CecilyArtProvider.Instance.GetPowerSmallIconPath(Id.Entry), base.CustomPackedIconPath);
+
+    public override string CustomBigIconPath =>
+        AssetPathUtil.ResolveOrFallback(CecilyArtProvider.Instance.GetPowerBigIconPath(Id.Entry), base.CustomBigIconPath);
+
+    public override string CustomBigBetaIconPath =>
+        AssetPathUtil.ResolveOrFallback(CecilyArtProvider.Instance.GetPowerBigIconPath(Id.Entry), base.CustomBigBetaIconPath);
 }

@@ -1,4 +1,4 @@
-<Project Sdk="Godot.NET.Sdk/4.6.2">
+<Project Sdk="Godot.NET.Sdk/4.5.1">
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
@@ -21,8 +21,8 @@
     <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="docs\Character_design_Cicely.txt" />
     <Content Include="docs\Look_At_Me_If_U_Are_AI.md" />
-    <Content Include="docs\希塞莉 卡表0.0.9.txt" />
     <Content Include=".gitignore" />
   </ItemGroup>
 </Project>

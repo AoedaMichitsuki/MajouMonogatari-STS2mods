@@ -1,6 +1,6 @@
+using System;
 using System.Threading.Tasks;
-using MajouMonogatari_STS2mods.Characters.Cecily.Powers;
-using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Models;
 
@@ -8,6 +8,18 @@ namespace MajouMonogatari_STS2mods.Shared.Resources.Breeze;
 
 public static class BreezeService
 {
+    private sealed class BreezeState
+    {
+        public int Amount;
+    }
+
+    private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<Creature, BreezeState> States = new();
+
+    private static BreezeState GetOrCreateState(Creature creature)
+    {
+        return States.GetValue(creature, static _ => new BreezeState());
+    }
+
     public static int GetCurrent(Creature creature)
     {
         if (creature == null)
@@ -15,7 +27,7 @@ public static class BreezeService
             return 0;
         }
 
-        return creature.GetPowerAmount<BreezePower>();
+        return States.TryGetValue(creature, out var state) ? Math.Max(0, state.Amount) : 0;
     }
 
     public static bool CanSpend(Creature creature, int amount)
@@ -28,17 +40,23 @@ public static class BreezeService
         return GetCurrent(creature) >= amount;
     }
 
-    public static Task Gain(Creature creature, int amount, Creature applier, CardModel sourceCard, bool silent = true)
+    public static Task Gain(Creature creature, int amount, Creature applier, CardModel sourceCard, bool silent = false)
     {
         if (creature == null || amount <= 0)
         {
             return Task.CompletedTask;
         }
 
-        return PowerCmd.Apply(ModelDb.Power<BreezePower>(), creature, amount, applier ?? creature, sourceCard, silent);
+        var state = GetOrCreateState(creature);
+        checked
+        {
+            state.Amount += amount;
+        }
+
+        return Task.CompletedTask;
     }
 
-    public static async Task<bool> Spend(Creature creature, int amount, Creature applier, CardModel sourceCard, bool silent = true)
+    public static async Task<bool> Spend(Creature creature, int amount, Creature applier, CardModel sourceCard, bool silent = false)
     {
         if (amount <= 0)
         {
@@ -50,13 +68,35 @@ public static class BreezeService
             return false;
         }
 
-        var breeze = creature.GetPower<BreezePower>();
-        if (breeze == null)
+        var state = GetOrCreateState(creature);
+        state.Amount = Math.Max(0, state.Amount - amount);
+        await Task.CompletedTask;
+        return true;
+    }
+
+    public static void Reset(Creature creature)
+    {
+        if (creature == null)
         {
-            return false;
+            return;
         }
 
-        await PowerCmd.ModifyAmount(breeze, -amount, applier ?? creature, sourceCard, silent);
-        return true;
+        if (States.TryGetValue(creature, out var state))
+        {
+            state.Amount = 0;
+        }
+    }
+
+    public static void ResetForCombat(CombatState combatState)
+    {
+        if (combatState?.Players == null)
+        {
+            return;
+        }
+
+        foreach (var player in combatState.Players)
+        {
+            Reset(player?.Creature);
+        }
     }
 }

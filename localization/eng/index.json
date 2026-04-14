@@ -1,0 +1,8 @@
+{
+  "majoumonogatari-sts2mods.localization.index.version": "1",
+  "majoumonogatari-sts2mods.localization.index.sharedKeywords": "shared.keywords.json",
+  "majoumonogatari-sts2mods.localization.index.characters": "cecily/characters.json",
+  "majoumonogatari-sts2mods.localization.index.cards": "cecily/cards.json",
+  "majoumonogatari-sts2mods.localization.index.powers": "cecily/powers.json",
+  "majoumonogatari-sts2mods.localization.index.relics": "cecily/relics.json"
+}

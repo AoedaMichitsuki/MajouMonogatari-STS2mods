@@ -1,0 +1,8 @@
+{
+  "majoumonogatari-sts2mods.keyword.breeze.title": "Breeze",
+  "majoumonogatari-sts2mods.keyword.breeze.description": "A special resource. Some cards consume [gold]Breeze[/gold] to be played or to gain stronger effects.",
+  "majoumonogatari-sts2mods.keyword.flow_left.title": "Flow (Left)",
+  "majoumonogatari-sts2mods.keyword.flow_left.description": "Triggers when this card is played from the leftmost position in your hand.",
+  "majoumonogatari-sts2mods.keyword.flow_right.title": "Flow (Right)",
+  "majoumonogatari-sts2mods.keyword.flow_right.description": "Triggers when this card is played from the rightmost position in your hand."
+}

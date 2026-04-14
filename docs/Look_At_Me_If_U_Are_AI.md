@@ -298,7 +298,36 @@ StS2.CecilyMod/
 - `HookRegistry`（统一注册）
 - Harmony patch：手牌上限、咏唱中心动画、能量禁令补强
 
-### 8.4 所有实体化方式均参考/Users/luozikun/STS2Project/ModTemplate-StS2/content 中的模版
+### 8.4 所有实体化方式均参考/Users/luozikun/STS2Project/ModTemplate-StS2/content和https://glitchedreme.github.io/SlayTheSpire2ModdingTutorials/的教程
+
+### 8.5 模型归位与注册方式（强约束）
+
+#### 8.5.1 本次致命问题复盘（必须记住）
+- 已有多个ai修改的版本发生启动 Fatal：`DuplicateModelException`（重复 canonical model）。
+- 根因：同一个模型（如 `CecilyCardPool`）走了两条注册路径：
+  1) `ModInitializer` 阶段手动 `ModelDb.Inject(...)`；  
+  2) 框架默认模型初始化流程再次创建。
+- 结论：**不要在初始化入口手动批量 Inject 常规模型**（角色/卡池/卡牌/遗物/能力）。
+
+#### 8.5.2 以后“模型补上”应放在哪里
+- 角色本体：`src/Characters/Cecily/CecilyCharacter.cs`
+- 池模型：`src/Characters/Cecily/CecilyCardPool.cs`、`CecilyRelicPool.cs`、`CecilyPotionPool.cs`
+- 卡牌：`src/Characters/Cecily/Cards/{Basic|Common|Rare|Special}/`
+- 遗物：`src/Characters/Cecily/Relics/`
+- 能力/资源 Power：`src/Characters/Cecily/Powers/`
+- 公共机制模型（跨角色）：`src/Shared/...`
+
+#### 8.5.3 以后应通过什么方式注册
+- 使用声明式方式注册，不在 `ModBootstrap` 里手动 `Inject`：
+  - 每个模型使用 `[CustomID(...)]`。
+  - 角色卡牌/遗物基类使用 `[Pool(typeof(...Pool))]`。
+  - 在角色模型中通过 `ModelDb.CardPool<T>() / ModelDb.RelicPool<T>() / ModelDb.PotionPool<T>()` 关联池。
+  - 起始卡组/起始遗物通过 `ModelDb.Card<T>() / ModelDb.Relic<T>()` 引用。
+- `ModInitializer` 只做：`HookRegistry`、Harmony patch、配置与日志初始化；不做常规模型注入。
+
+#### 8.5.4 例外情况
+- 仅当某对象**确认不在框架自动注册链路**中时，才允许手动 `ModelDb.Inject`。
+- 若必须手动 Inject，必须保证全局唯一来源，并在代码注释中写明“为何不能走声明式注册”。
 
 ---
 
