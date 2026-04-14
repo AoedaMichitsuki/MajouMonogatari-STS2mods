@@ -1,0 +1,238 @@
+##带有“*”标识的是特殊注明，用于详细说明一些特殊情况和介绍机制与代码层面的判定标准等，并不会出现在实际的卡面中。
+##括号中的内容表示升级后的效果。“虚无（）”这样的描述表示升级后去除虚无词条。
+希赛莉 Cicely HP：70/70  初始金币：99
+拥有【掌握微小的气流之天生魔法】的半魔女。因为友人的实验失误而被传送到高塔。
+A half-witch possessing the innate magic of manipulating subtle air currents. She was transported to the Spire due to a friend's failed experiment.
+初始遗物：天生魔法（风） The Talent: Wind：每当你获得1次格挡，获得1点【微风】（Breeze）。
+When ever you gain Block, gain 1 Breeze.
+强化初始遗物：若草色风铃  Wind-Bell of Grass：每当你获得1次格挡，获得2点【微风】。每场战斗开始时，你获得3点【微风】
+When ever you gain Block, gain 2 Breeze. At the start of each combat, gain 3 Breeze
+*【微风】最低只能被扣至0，如果打出需要消耗【微风】的卡牌时【微风】不够，那么无法打出此卡牌
+专属遗物：
+风量计（稀有） Volume Meter：每当你通过平移移动一张卡牌，获得1点【微风】
+Whenever you Shift a card, gain 1 Breeze.
+法力布料（罕见） Magic Cloth：每当你打出一张带有“咏唱”的卡牌，获得3点格挡
+Whenever you played a Chant card, gain 3 block. 
+完美的四面锥（稀有） Pure Pyramid ：每张战斗中限一次，回合开始时，如果你在本场战斗中累计受到4次及以上伤害，这个回合结束后你获得一个额外的回合。
+Once per combat, at the start of your turn, if you have taken damage 4 or more times this combat, take an extra turn after this one.
+超广域透镜（罕见） Ultra-Wide Len：触发【流场（左/右）】效果时，若卡左/右侧只有1张“状态牌”或“诅咒牌”，依然可以触发成功。
+When triggering Flow(Left/Right), if there is only one Status or Curse card to the Left/Right of this card, it still triggers successfully.
+
+特殊词条的说明：
+流场（左/右） Flow(Left/Right)：打出此牌时这张牌在手牌最左/右边时可以触发的效果
+流场（空） Flow（Vain）：打出此牌时这张牌是手牌中唯一卡牌时可以触发的效果
+*如果带有流场词条的牌不是从手牌中打出的，不触发任何效果
+**带有流场词条的牌可以触发流场效果的时候，卡牌最外围的光晕该变为黄色以提示
+连接 Connection：这张牌与本回合打出的上一张牌类型相同时可以触发的效果
+*带有连接词条的牌可以触发连接效果的时候，卡牌最外围的光晕该变为黄色以提示
+咏唱 Chant：打出这张牌后，它会回到手牌最右侧并锁定，若本回合结束时它还在手中，则下回合开始时它的效果会触发并进入弃牌堆（或消耗堆，如果卡牌带有消耗词条）
+*带有流场效果的咏唱牌，判断流场是否成功触发时，检测打出此牌的回合结束时自动弃牌前的手牌情况。
+**动画上，咏唱牌被打出后，应当短暂停留于屏幕中央，触发某种特效随后回到手牌。不需要进入弃牌堆或消耗再从中回到手牌。
+***咏唱仅先于回合结束的自动弃牌时判定是否成功，后于其他一切。例如：这张咏唱卡牌被添加了虚无，在回合结束时自动消耗了，下回合其效果无法正常触发。这张咏唱卡牌打出一次后在回合内被丢弃，随后又被重新摸到，回合结束时还在手牌中，下回合其效果正常触发。打出咏唱牌下回合生效的时机在抽牌之前，也就是说无论如何它都不会影响到下回合开始时的抽卡或其他事情。如果复数咏唱牌同时需要结算，从左往右进行。
+****咏唱这个词条是本mod的公用词条，若干计划中的角色都会有带有本词条的卡牌，而其他词条是本角色独有的
+锁定 Locked：本回合无法打出这张牌，本回合该卡牌获得保留
+平移（左/右）X Shitf(Left/Right)：卡牌在手牌中向左/右移动X个位置。
+*如果在最左侧向左平移，则无事发生。反之亦然。
+
+
+初始
+打击 Strike：费用1 攻击牌 造成6（9）点伤害 （x4）
+Deal 6(9) damage.
+风弹 Wind Bullet：费用0 攻击牌 造成等同于6+当前【微风】层数的伤害。随后失去2点【微风】，流场（左）：获得2（4）点【微风】
+Deal damage equal to 6 + your current Breeze. Lose 2 Breeze. Flow(Left): Gain 2(4) Breeze.
+防御 Defend：费用1 技能牌 获得5（8）点格挡 （x4）
+Gain 5(8) Block.
+春絮 Catkin：费用0 技能牌 获得2点格挡2（3）次，流场（左）：抽1张牌，流场（右）：丢弃1张牌
+Gain 2 Block 2(3) times. Flow(Left): Draw 1 card. Flow(Right): Discard 1 card.
+普通：
+凝聚 Condensation：技能牌 费用1 获得3点【微风】（连接：额外获得2点）
+Gain 3 Breeze. (Link: Gain 2 additional Breeze.)
+浅呼吸 Shallow Breathe：技能牌 费用1 咏唱。获得10（14）点格挡
+Chant. Gain 10 (14) Block.
+*【咏唱】牌如果不被丢弃或移动，就会卡住你原本手牌中所有的流场（右）的效果。但丢弃后如果不能做到回手又会导致花了费用却无法生效，这一点值得注意。这也是为什么这张【浅呼吸】给的数值相当慷慨（当然也因为它是一张无法加入本回合循环的跨回合收益卡）
+回想 Think Back：技能牌 费用0 将你选择的1张牌从弃牌堆移动到手牌最左侧（并升级）
+Move a chosen card from your Discard Pile to the leftmost position in your hand (and Upgrade it).
+翻书 Blow The Pages：技能牌 费用1 抽1（2）张牌，将一张手牌平移（左）1 
+Draw 1 (2) card(s). Shift (Left) 1 a card in your hand.
+憧憬 Longing：技能牌 费用1（0） 咏唱。流场（右）：获得5点【微风】
+Chant. Flow (Right): Gain 5 Breeze.
+自然而然 As It Will Be：技能牌 费用0 选择一张手牌，选择平移（右）1或平移（左）1，消耗，（保留）
+Choose a card in your hand. Choose to Shift (Right) 1 or Shift (Left) 1. Exhaust. (Retain.)
+吹气 Blow：技能牌 费用0 选择一张手牌，平移（右）1（2）
+Choose a card in your hand. Shift (Right) 1 (2).
+日积月累 Accumulation：技能牌 费用2（1） 获得1点力量。下回合开始时，获得1点敏捷，消耗
+Gain 1 Strength. At the start of your next turn, gain 1 Dexterity. Exhaust.
+结伴 Make Company：技能牌 费用1 获得3（4）点格挡2次。流场（左）：下回合开始时，获得1点能量
+Gain 3 (4) Block 2 times. Flow (Left): At the start of your next turn, gain 1 Energy.
+设置 Setting：技能牌 费用2 咏唱。获得8（10）点格挡，流场（右）：从抽牌堆随机抽取3张技能牌放入你的手牌
+Chant. Gain 8 (10) Block. Flow (Right): Add 3 random Skill cards from your Draw Pile to your hand.
+和蔼 Pleasant：技能牌 费用0 消耗3点【微风】，获得8（10）点格挡
+Lose 3 Breeze. Gain 8 (10) Block.
+精灵群聚 Gathering Elves：技能牌 费用0 消耗4点【微风】，获得2点能量。消耗（）
+Lose 4 Breeze. Gain 2 Energy. Exhaust. (No longer Exhausts.)
+风滚球 Tumbleball：攻击牌 费用1 消耗2（1）点【微风】，造成7点伤害，流场（左）：多造成一次伤害
+Lose 2 (1) Breeze. Deal 7 damage. Flow (Left): Deal damage 1 additional time.
+大爆发 Outburst：攻击牌 费用1 消耗所有【微风】，每消耗1点，对所有敌人造成1（2）点伤害1次，将2张晕眩加入你的抽牌堆
+Lose all Breeze. Deal 1 (2) damage to All enemies for each Breeze lost. Add 2 Dazed into your Draw Pile.
+席卷 Sweep Out：攻击牌 费用1 对所有敌人造成6（8）点伤害，连接：给予所有敌人1层虚弱
+Deal 6 (8) damage to ALL enemies. Link: Apply 1 Weak to ALL enemies.
+树枝敲打 Branch Knock：攻击牌 费用0 造成1点伤害4（5）次。连接：这张卡牌的伤害加1
+Deal 1 damage 4 (5) times. Link: Increase this card's damage by 1.
+焦躁 Anxiety：攻击牌 费用1 造成3（4）点3次，给予1层易伤，这张牌的左侧每有一张卡牌，受到1点伤害
+Deal 3 (4) damage 3 times. Apply 1 Vulnerable. For each card to the left of this card, take 1 damage.
+全力以赴 Full Potential：攻击牌 费用2 造成22（26）点伤害，丢弃手牌中最靠左的牌，连接：丢弃一张牌
+Deal 22 (26) damage. Discard the leftmost card in your hand. Link: Discard a card.
+流动打击 Flowing Strike：攻击牌 费用1 造成8（10）点伤害，连接：抽1张牌，将其平移（左）1
+Deal 8 (10) damage. Link: Draw 1 card and Shift (Left) 1 it.
+乱回旋 Massy Swirling：攻击牌 费用1 消耗1点【微风】，造成11（14）点伤害，向你的弃牌堆里添加2张【乱流】
+Lose 1 Breeze. Deal 11 (14) damage. Add 2 Turbulence into your Discard Pile.
+乱流 Turbulence：状态牌 此牌无法被从手牌中打出。抽到此牌时，自动打出并消耗，打乱你手牌的顺序
+Unplayable. When Drawn, play automatically and Exhaust. Shuffle the order of cards in your hand.
+
+罕见：
+吸入粉尘 Inhaled Dust：能力牌 费用2（1） 每回合你第一次为敌人附加负面效果时，额外附加一次
+The first time you apply a Debuff to an enemy each turn, apply it one additional time.
+层叠 Stack-up：能力牌 费用2 每当你获得10（7）点【微风】，获得1层敏捷。
+Whenever you gain 10 (7) Breeze, gain 1 Dexterity.
+高压环境 Hyperbaric：能力牌 费用1 每当你失去【微风】时，对所有敌人造成3（5）点伤害
+Whenever you lose Breeze, deal 3 (5) damage to ALL enemies.
+定风波 Tranquillity：能力牌 费用1 每回合开始时，如果本回合触发过“咏唱”，将一张随机的、在本回合费用为 0 的罕见技能牌放入手牌。虚无（）
+At the start of your turn, if Chant was triggered this turn, add a random Uncommon Skill that costs 0 this turn to your hand. Ethereal. (No longer Ethereal.)
+胡搅蛮缠 Importunated：能力牌 费用1 每当你获得一张状态牌时，将其变为【乱流】。（固有）
+Whenever you gain a Status card, transform it into Turbulence. (Innate.)
+绝对真空 Absolute Vacuum：能力牌 费用 1 (0) 固有。在你的手牌中添加两张【真空】。每个回合结束时，若你手中没有任何锁定中的卡牌，下回合开始时额外获得 1 点能量。
+Innate. Add 2 Vacuo into your hand. At the end of your turn, if you have no Locked cards in hand, gain 1 Energy at the start of your next turn.
+【真空】 Vacuo：状态牌 此牌无法被从手牌中打出。无法逃脱。当你抽到此牌时，锁定。
+Unplayable. Unescapable. When Drawn, this card becomes Locked.
+远距共鸣 Telepathy：能力牌 费用2 “连接”判定不再要求“上一张”，而是改为“本回合打出过的任意一张”。虚无（）
+Link conditions no longer require the "previous card," but instead check "any card played this turn." Ethereal. (No longer Ethereal.)
+旅程积累 Learn From Roads：能力牌 费用2 回合开始时，你每触发一次“咏唱”效果，获得2（3）点格挡。
+At the start of your turn, gain 2 (3) Block for each time you triggered Chant.
+陷阱 Trap：技能牌 费用1 本回合获得3（4）点荆棘
+Gain 3 (4) Thorns this turn.
+赠礼 Gifted：技能牌 费用1 从随机三张【魔女】的攻击牌里选择一张（升级过后的）放入你的手牌
+Choose 1 of 3 random (Upgraded) Witch Attack cards and add it to your hand.
+构建风道 Set up Flue：技能牌 费用1 消耗5（3）点【微风】，下一次触发卡牌的“连接”效果时，额外触发1次
+Lose 5 (3) Breeze. The next time you trigger a Link effect, it triggers 1 additional time.
+覆风斗篷 Wind Covering：技能牌 费用2（1） 本回合你无法再获得【微风】。你每有1点【微风】，获得4点格挡，消耗你所有的【微风】。流场（右）：改为消耗一半【微风】
+You cannot gain Breeze this turn. Gain 4 Block for each Breeze you have. Lose all Breeze. Flow (Right): Lose half of your Breeze instead.
+传递 Delivery：技能牌 费用1 咏唱。抽2张牌。流场（右）：抽1（2）张牌
+Chant. Draw 2 cards. Flow (Right): Draw 1 (2) card(s).
+林中舞 Twiggy Dance：技能牌 费用2（1）本回合，每当你成功完全格挡一次攻击，在下回合开始时获得1层荆棘。流场（左）：获得1点能量
+This turn, whenever you successfully Full Block an attack, gain 1 Thorns at the start of your next turn. Flow (Left): Gain 1 Energy.
+毒素之风 Toxins：技能牌 费用2 消耗2点【微风】，给予所有敌人2层易伤，给予所有敌人2层虚弱，流场（空）：所有敌人在本回合失去6点力量。消耗（）
+Lose 2 Breeze. Apply 2 Vulnerable and 2 Weak to ALL enemies. Flow (Vain): ALL enemies lose 6 Strength this turn. Exhaust. (No longer Exhausts.)
+准备时间 Set-up Time：技能牌 费用1 你手中每有一张锁定中的卡牌，获得1点能量。（保留）
+Gain 1 Energy for each Locked card in your hand. (Retain.)
+临时创造 Impromptu：技能牌 费用1 抽2（3）张牌。将你手牌最左侧的牌移动到最右侧
+Draw 2 (3) cards. Move the leftmost card in your hand to the rightmost position.
+契约 Contract：技能牌 费用2（1） 选择1张手牌，将其消耗。流场（左）：如果被消耗的卡牌带有“咏唱”，消耗前立刻触发其效果1次。
+Exhaust a card in your hand. Flow (Left): If the Exhausted card has Chant, trigger its effect once before Exhausting.
+卷积云 Cirrocumulus：技能牌 费用1 获得等同于你当前【微风】层数（+4）的格挡。消耗。流场（左）：将本卡牌的一张复制品放入抽牌堆顶
+Gain Block equal to your current Breeze (+4). Exhaust. Flow (Left): Put a copy of this card on top of your Draw Pile.
+学习 Study：技能牌 费用1（0）如果敌人意图为攻击，获得1点力量；如果敌人意图为防御，获得1点敏捷；如果敌人意图为其他，获得1点能量
+If the enemy's intent is an Attack, gain 1 Strength. If the enemy's intent is a Defend, gain 1 Dexterity. If the enemy has any other intent, gain 1 Energy.
+预演 Rehearsal：技能牌 费用1 流场（右）：选择一张手牌中的技能牌，添加“咏唱”，使其下一次打出时效果翻倍。（保留。）
+Flow (Right): Choose a Skill card in your hand; add Chant and double its effect the next time it is played. (Retain.)
+捕获 Capture：技能牌 费用2（1） 咏唱。将抽牌堆中随机1张攻击牌放入手牌，其费用本回合变为 0。流场（右）：额外抽取一张
+Chant. Add a random Attack from your Draw Pile to your hand. It costs 0 this turn. Flow (Right): Add an additional one.
+镜面乱涌 Surface Surge：技能牌 费用3（2） 选择一张锁定中的手牌，本回合中，你每触发一次【连接】，下回合开始时该牌效果额外触发一次
+Choose a Locked card in hand. This turn, every time you trigger Link, that card's effect triggers an additional time at the start of your next turn.
+对流 Convection：技能牌 费用0 交换手牌中最左侧与最右侧的卡牌。消耗（）
+Swap the leftmost and rightmost cards in your hand. Exhaust. (No longer Exhausts.)
+穿过缝隙 Through The Gap：技能牌 费用1 抽 1 张牌。如果该牌带有“流场”或“连接”，重复此过程。（保留）
+Draw 1 card. If it has Flow or Link, repeat this process. (Retain.)
+沉降 Sedimentation：技能牌 费用2 咏唱。获得8（11）点格挡，本回合受到来自敌人的伤害减少50%
+Chant. Gain 8 (11) Block. Reduce incoming damage from enemies by 50% this turn.
+*向上取整，伤害减少的效果无法叠加生效
+连续施法 Continuosity：攻击牌 费用2 造成8（10）点伤害，选择一张锁定中的手牌丢弃，下回合开始时它会自动回到手牌中。
+Deal 8 (10) damage. Choose a Locked card in hand and Discard it; at the start of your next turn, return it to your hand automatically.
+*这意味着一张卡牌可以不占据手牌位置而触发“咏唱”的效果
+春岚 Spring Wild：攻击牌 费用1 造成5点伤害2（3）次。连接：每造成一段未被格挡的伤害，获得一点【微风】
+Deal 5 damage 2 (3) times. Link: Whenever you deal unblocked damage, gain 1 Breeze.
+蓄力回旋 Gathering：攻击牌 费用2 如果手中有锁定中的卡牌，造成22（26）点伤害，丢弃所有锁定中的手牌 
+If you have a Locked card in hand, deal 22 (26) damage and Discard all Locked cards.
+风刃 Wind Blade：攻击牌 费用2 咏唱。消耗3点【微风】，造成22（26）点伤害，给予1(2)层虚弱
+Chant. Lose 3 Breeze. Deal 22 (26) damage. Apply 1 (2) Weak.
+大风暴 Huge Storm：攻击牌 费用3 消耗5点【微风】，流场（右）：造成44（50）点伤害，结束你的回合
+Lose 5 Breeze. Flow (Right): Deal 44 (50) damage. End your turn.
+随风纷飞 Fluttering：攻击牌 费用1 造成9（12）点伤害，将你弃牌堆里的所有牌洗入抽牌堆
+Deal 9 (12) damage. Shuffle your Discard Pile into your Draw Pile.
+裂空 Hollow Slash：攻击牌 费用2  造成15点伤害，流场（空）：抽2张牌，（获得2点能量）
+Deal 15 damage. Flow (Vain): Draw 2 cards. (Gain 2 Energy.)
+双重气旋 Double Cyclones：攻击牌 费用1 消耗2点【微风】，造成6（8）点伤害。流场（左）：额外造成一次伤害
+Lose 2 Breeze. Deal 6 (8) damage. Flow (Left): Deal damage 1 additional time.
+黄金分割 Golden Section：攻击牌 费用 1 造成 10（14） 点伤害。如果此牌两侧的卡牌类型相同，获得 1 点能量并抽 1 张牌。
+Deal 10 (14) damage. If the cards on both sides of this card are of the same Type, gain 1 Energy and Draw 1 card.
+多重连携 Multi-Connect：攻击牌 费用X 造成 3（4） 点伤害X次，连接：本回合每触发过一次连接，提高1点伤害
+Deal 3 (4) damage X times. Link: Increase damage by 1 for each time Link was triggered this turn.
+*不包括这张牌本身触发的连接效果
+连锁效应 Chain Effect：攻击牌 费用1 造成 7(10) 点伤害。连接：将此牌的一张带有虚无和消耗的复制品放入手牌。
+Deal 7 (10) damage. Link: Add a copy of this card with Ethereal and Exhaust into your hand.
+
+稀有
+万物有灵 Animism：能力牌 费用1 每当你打出一张需要消耗【微风】的牌，抽1（2）张牌。
+Whenever you play a card that consumes Breeze, Draw 1 (2) card(s).
+晨祭 Mattins：能力牌 费用1 每回合开始时，消耗 2 点【微风】，抽 1(2) 张牌。
+At the start of your turn, lose 2 Breeze and Draw 1 (2) card(s).
+理解 Comprehend：能力牌 费用1（0） 手牌最左侧与最右侧的卡牌视为相邻。
+The leftmost and rightmost cards in your hand are considered Adjacent.
+*你可以将最左侧的卡牌向左平移1，它会出现在最右侧。反之亦然。
+共鸣频率 Resonance Frequency：能力牌 费用2 你每打出 1 张卡牌，手牌中所有流场（左）卡牌平移（左）1（2），所有流场（右）卡牌平移（右）1（2）。
+Every time you play a card, Shift (Left) 1 (2) all Flow (Left) cards in your hand, and Shift (Right) 1 (2) all Flow (Right) cards in your hand.
+*如果同时拥有流场（左）与（右），不移动
+逻辑闭环 Closed Loop：能力牌 费用2（1） 每当一张“咏唱”牌触发效果且即将进入弃牌堆，将其返回你手牌最左侧
+Whenever a Chant card triggers its effect and would be placed into the Discard Pile, return it to the leftmost position in your hand instead.
+新枝形态 Sprout Form：能力牌 费用3 你可以打出诅咒牌和状态牌并将其消耗。（所有诅咒牌和状态牌获得连接：抽1张牌。）
+You can play Curse and Status cards; they are Exhausted when played. (All Curse and Status cards gain Link: Draw 1 card.)
+旅行日记 Travelling Diary：能力牌 费用2 （保留。）战斗结束时，随机升级一张牌。
+(Retain.) At the end of combat, Upgrade a random card in your deck.
+二重奏 Duet：能力牌 费用3（2） 每回合，当你第一次打出一张处于手牌最左/右边的牌，在其对侧位置（右/左）生成一张它的复制品。
+Each turn, the first time you play a card from the leftmost or rightmost position of your hand, add a copy of it to the opposite side (Right/Left).
+与我同行 Going My Way：能力牌 费用2 每次你触发“连接”效果时，获得4（6）点格挡。
+Whenever you trigger a Link effect, gain 4 (6) Block.
+脑力风暴 Brain Storm：技能牌 费用0 将抽牌堆与弃牌堆里所有带有“咏唱”的卡牌放入手牌。消耗。虚无（）
+Add all cards with Chant from your Draw Pile and Discard Pile into your hand. Exhaust. Ethereal. (No longer Ethereal.)
+思忖成长 Introspection：技能牌 费用1（0） 将手牌中所有牌按费用从小到大顺序从左至右排列
+Sort all cards in your hand from left to right by their Cost (lowest to highest).
+*同样费用的卡牌的相对顺序保持与排列前相同
+暴风眼 Eye of Hurricane：技能牌 费用3（2） 立刻触发手牌中所有带有“咏唱”的卡牌的效果并丢弃。下回合开始时，跳过你的回合
+Trigger the effects of all Chant cards in your hand and Discard them. At the start of your next turn, Skip your turn.
+越过边界 Overstep：技能牌 费用1 本回合中你的卡牌的“连接”效果额外触发一次。消耗（）
+Your Link effects trigger one additional time this turn. Exhaust. (No longer Exhausts.)
+天气预报 Weather Report：技能牌 费用X 查看你牌堆顶的X（＋3）张牌，选择任意张按顺序放回牌堆顶，消耗其余卡牌
+Look at the top X (+3) cards of your Draw Pile. Put any number of them back on top in any order and Exhaust the rest.
+归于无形 Ends Up：技能牌 费用2（1） 丢弃你的所有手牌，获得1层缓冲。流场（空）:额外获得1层
+Discard your hand. Gain 1 Buffer. Flow (vain): Gain 1 additional Buffer.
+通篇部署 Overall Outlook ：技能牌 费用0 咏唱。获得3（4）点能量，抽3（5）张牌，本回合无法抽牌或获得能量。消耗。虚无
+Chant. Gain 3 (4) Energy. Draw 3 (5) cards. You cannot gain Energy or Draw cards for the rest of this turn. Exhaust. Ethereal.
+等压平衡 Isobaric Equilibrium：技能牌 费用2 交换你【微风】层数与格挡的数值。连接：双方均变为二者最大值。消耗。（保留）
+Swap your Breeze and Block values. Link: Set both to the higher of the two values. Exhaust. (Retain.)
+终末气息 Final Breathe：技能牌 费用2。消耗手牌中所有非攻击牌。消耗。连接：获得2（3）点能量
+Exhaust all non-Attack cards in your hand. Exhaust. Link: Gain 2 (3) Energy.
+岚之歌 Tempest：攻击牌 费用2 造成18（22）点伤害，本回合，“流场”牌可以【接续】
+Deal 18 (22) damage. This turn, Flow cards can be End-to-End.
+【接续】 End-to-End：拥有流场（左）效果的卡牌，其左侧全部为其他拥有流场（左）效果的卡牌时，即使自己不在最左侧也视为可以触发流场效果。反之亦然。
+最终迫切 Impendency：攻击牌 费用3 咏唱，造成20点伤害。这张卡牌在本场战斗中的伤害翻倍。如果本回合受到未被格挡的伤害，消耗（丢弃）本牌。
+Chant. Deal 20 damage. Double this card's damage for this combat. If you take unblocked damage this turn, Exhaust (Discard) this card.
+千枝万叶 Thousands Leaves：攻击牌 费用0 造成1点伤害10（15）次。只有当你手牌满时才能打出。
+Deal 1 damage 10 (15) times. Can only be played if your hand is full.
+聚合打击 Aggregated Strike：攻击牌 费用2 造成8点伤害。本场战斗中，每当你打出一张带有“咏唱”的卡牌，本卡牌的伤害提高8（10）
+Deal 8 damage. For this combat, whenever you play a card with Chant, increase this card's damage by 8 (10).
+对流切割 Covection Cut：攻击牌 费用1 对所有敌人造成16点伤害。连接：获得3（5）点【微风】，将本牌放回手牌
+Deal 16 damage to ALL enemies. Link: Gain 3 (5) Breeze and return this card to your hand.
+风洞坍塌 Tunnel Collapsed：攻击牌 费用3 造成16（20）点伤害。流场（左）：本次伤害翻倍。流场（右）：敌人在本回合失去和本卡牌造成伤害一样数额的力量。消耗
+Deal 16 (20) damage. Flow (Left): Double this damage. Flow (Right): The enemy loses Strength equal to the damage dealt by this card this turn. Exhaust.
+余韵 Lingering Charm：攻击牌 费用 1 咏唱。造成 9(12) 点伤害。重复你上回合打出的最后一张牌的效果（不包括此牌）。
+Chant. Deal 9 (12) damage. Repeat the effect of the last card you played last turn (excluding this card).
+*如果打出的是咏唱牌，其效果立刻结算。这张牌的逻辑类似于将上张牌的数值效果加入了本牌效果中，但不计算消耗、咏唱等负面效果。
+咏叹调 Aria：技能牌 费用1 咏唱。将一张“终章（+）”放入你的手牌。
+Chant. Add a Finale(+) into your hand.
+终章 Finale：攻击牌（特殊的无色牌） 费用2 保留。造成20（24）点伤害。本回合中本卡牌每移动1个位置，伤害增加4（6）。离开手牌时伤害重置
+Retain. Deal 20 (24) damage. For each position this card moves this turn, increase its damage by 4 (6). Reset damage when it leaves your hand.
+*打出其左侧卡牌让其自然向左移动也算。
+先古
+（强化自“春絮”）散乱花 Blossom Way：费用0 技能牌 获得2点格挡3（4）次，流场（左）：抽1张牌，它在本回合下一次打出前变为0费。流场（右）：选择一张手牌消耗
+Gain 2 Block 3 (4) times. Flow (Left): Draw 1 card; it costs 0 until played this turn. Flow (Right): Choose a card in your hand and Exhaust it.
+南城若草 New Burgeon：费用1 能力牌 每回合开始时，你可以从牌堆里选择任意1（2）张牌，并将其放入手牌。
+At the start of your turn, you may choose any 1 (2) card(s) from your Draw Pile and add them to your hand.
