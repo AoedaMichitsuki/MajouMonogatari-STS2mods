@@ -47,7 +47,7 @@ Gain 2 Block 2(3) times. Flow(Left): Draw 1 card. Flow(Right): Discard 1 card.
 普通：
 凝聚 Condensation：技能牌 费用1 获得3点【微风】（连接：额外获得2点）
 Gain 3 Breeze. (Link: Gain 2 additional Breeze.)
-浅呼吸 Shallow Breathing：技能牌 费用1 咏唱。获得10（14）点格挡
+浅呼吸 Shallow Breathe：技能牌 费用1 咏唱。获得10（14）点格挡
 Chant. Gain 10 (14) Block.
 *【咏唱】牌如果不被丢弃或移动，就会卡住你原本手牌中所有的流场（右）的效果。但丢弃后如果不能做到回手又会导致花了费用却无法生效，这一点值得注意。这也是为什么这张【浅呼吸】给的数值相当慷慨（当然也因为它是一张无法加入本回合循环的跨回合收益卡）
 回想 Think Back：技能牌 费用0 将你选择的1张牌从弃牌堆移动到手牌最左侧（并升级）
@@ -66,7 +66,7 @@ Gain 1 Strength. At the start of your next turn, gain 1 Dexterity. Exhaust.
 Gain 3 (4) Block 2 times. Flow (Left): At the start of your next turn, gain 1 Energy.
 设置 Setting：技能牌 费用2 咏唱。获得8（10）点格挡，流场（右）：从抽牌堆随机抽取3张技能牌放入你的手牌
 Chant. Gain 8 (10) Block. Flow (Right): Add 3 random Skill cards from your Draw Pile to your hand.
-和蔼 Pleasantly：技能牌 费用0 消耗3点【微风】，获得8（10）点格挡
+和蔼 Pleasant：技能牌 费用0 消耗3点【微风】，获得8（10）点格挡
 Lose 3 Breeze. Gain 8 (10) Block.
 精灵群聚 Gathering Elves：技能牌 费用0 消耗4点【微风】，获得2点能量。消耗（）
 Lose 4 Breeze. Gain 2 Energy. Exhaust. (No longer Exhausts.)
@@ -110,11 +110,11 @@ Link conditions no longer require the "previous card," but instead check "any ca
 At the start of your turn, gain 2 (3) Block for each time you triggered Chant.
 陷阱 Trap：技能牌 费用1 本回合获得3（4）点荆棘
 Gain 3 (4) Thorns this turn.
-赠礼 Gifts：技能牌 费用1 从随机三张【魔女】的攻击牌里选择一张（升级过后的）放入你的手牌
+赠礼 Gifted：技能牌 费用1 从随机三张【魔女】的攻击牌里选择一张（升级过后的）放入你的手牌
 Choose 1 of 3 random (Upgraded) Witch Attack cards and add it to your hand.
 构建风道 Set up Flue：技能牌 费用1 消耗5（3）点【微风】，下一次触发卡牌的“连接”效果时，额外触发1次
 Lose 5 (3) Breeze. The next time you trigger a Link effect, it triggers 1 additional time.
-覆风斗篷 Winds Covering：技能牌 费用2（1） 本回合你无法再获得【微风】。你每有1点【微风】，获得4点格挡，消耗你所有的【微风】。流场（右）：改为消耗一半【微风】
+覆风斗篷 Wind Covering：技能牌 费用2（1） 本回合你无法再获得【微风】。你每有1点【微风】，获得4点格挡，消耗你所有的【微风】。流场（右）：改为消耗一半【微风】
 You cannot gain Breeze this turn. Gain 4 Block for each Breeze you have. Lose all Breeze. Flow (Right): Lose half of your Breeze instead.
 传递 Delivery：技能牌 费用1 咏唱。抽2张牌。流场（右）：抽1（2）张牌
 Chant. Draw 2 cards. Flow (Right): Draw 1 (2) card(s).
@@ -232,7 +232,7 @@ Chant. Add a Finale(+) into your hand.
 Retain. Deal 20 (24) damage. For each position this card moves this turn, increase its damage by 4 (6). Reset damage when it leaves your hand.
 *打出其左侧卡牌让其自然向左移动也算。
 先古
-（强化自“春絮”）散乱花 Blossom：费用0 技能牌 获得2点格挡3（4）次，流场（左）：抽1张牌，它在本回合下一次打出前变为0费。流场（右）：选择一张手牌消耗
+（强化自“春絮”）散乱花 Blossom Way：费用0 技能牌 获得2点格挡3（4）次，流场（左）：抽1张牌，它在本回合下一次打出前变为0费。流场（右）：选择一张手牌消耗
 Gain 2 Block 3 (4) times. Flow (Left): Draw 1 card; it costs 0 until played this turn. Flow (Right): Choose a card in your hand and Exhaust it.
 南城若草 New Burgeon：费用1 能力牌 每回合开始时，你可以从牌堆里选择任意1（2）张牌，并将其放入手牌。
 At the start of your turn, you may choose any 1 (2) card(s) from your Draw Pile and add them to your hand.
