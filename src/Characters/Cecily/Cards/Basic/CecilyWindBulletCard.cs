@@ -42,7 +42,7 @@ public class CecilyWindBulletCard() : CecilyCard(0, CardType.Attack, CardRarity.
         var totalDamage = DynamicVars.Damage.IntValue + breezeBeforeSpend;
         await CreatureCmd.Damage(choiceContext, cardPlay.Target, totalDamage, ValueProp.Move, ownerCreature, this);
 
-        if (!FlowRuntimeState.TryGet(this, out var flowSnapshot) || !flowSnapshot.IsLeftmost)
+        if (!FlowRuntimeState.TryResolve(cardPlay?.Card ?? this, cardPlay, out var flowSnapshot) || !flowSnapshot.IsLeftmost)
         {
             return;
         }

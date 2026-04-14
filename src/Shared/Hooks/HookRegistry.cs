@@ -49,25 +49,45 @@ public static class HookRegistry
             }
 
             var harmony = new Harmony($"{modId}.hook-registry");
-            PatchByName(harmony, hookType, "ShouldPlay", nameof(ShouldPlayPostfix));
-            PatchByName(harmony, hookType, "BeforeCardPlayed", nameof(BeforeCardPlayedPostfix));
+            PatchByName(harmony, hookType, "ShouldPlay", postfixName: nameof(ShouldPlayPostfix));
+            PatchByName(harmony, hookType, "BeforeCardPlayed", prefixName: nameof(BeforeCardPlayedPrefix));
             PatchByName(harmony, hookType, "AfterCardPlayed", nameof(AfterCardPlayedPostfix));
             PatchByName(harmony, hookType, "AfterBlockGained", nameof(AfterBlockGainedPostfix));
             PatchByName(harmony, hookType, "BeforeCombatStart", nameof(BeforeCombatStartPostfix));
             PatchEnergyCounterByName(harmony, "_Ready", nameof(EnergyCounterReadyPostfix));
             PatchEnergyCounterByName(harmony, "_Process", nameof(EnergyCounterProcessPostfix));
+            PatchCardPileByName(harmony, nameof(CardPile.RemoveInternal), nameof(CardPileRemoveInternalPrefix));
 
             _registered = true;
             ModLog.Info("Hook registry patched.");
         }
     }
 
-    private static void PatchByName(Harmony harmony, Type hookType, string hookMethodName, string postfixName)
+    private static void PatchByName(
+        Harmony harmony,
+        Type hookType,
+        string hookMethodName,
+        string postfixName = null,
+        string prefixName = null)
     {
-        var postfix = AccessTools.Method(typeof(HookRegistry), postfixName);
-        if (postfix == null)
+        var postfix = string.IsNullOrWhiteSpace(postfixName) ? null : AccessTools.Method(typeof(HookRegistry), postfixName);
+        var prefix = string.IsNullOrWhiteSpace(prefixName) ? null : AccessTools.Method(typeof(HookRegistry), prefixName);
+
+        if (postfix == null && prefix == null)
+        {
+            ModLog.Error($"Missing patch methods for hook: {hookMethodName}");
+            return;
+        }
+
+        if (!string.IsNullOrWhiteSpace(postfixName) && postfix == null)
         {
             ModLog.Error($"Missing postfix method: {postfixName}");
+            return;
+        }
+
+        if (!string.IsNullOrWhiteSpace(prefixName) && prefix == null)
+        {
+            ModLog.Error($"Missing prefix method: {prefixName}");
             return;
         }
 
@@ -84,7 +104,10 @@ public static class HookRegistry
 
         foreach (var method in targetMethods)
         {
-            harmony.Patch(method, postfix: new HarmonyMethod(postfix));
+            harmony.Patch(
+                method,
+                prefix: prefix == null ? null : new HarmonyMethod(prefix),
+                postfix: postfix == null ? null : new HarmonyMethod(postfix));
         }
     }
 
@@ -107,6 +130,25 @@ public static class HookRegistry
         harmony.Patch(targetMethod, postfix: new HarmonyMethod(postfix));
     }
 
+    private static void PatchCardPileByName(Harmony harmony, string targetMethodName, string prefixName)
+    {
+        var prefix = AccessTools.Method(typeof(HookRegistry), prefixName);
+        if (prefix == null)
+        {
+            ModLog.Error($"Missing CardPile prefix method: {prefixName}");
+            return;
+        }
+
+        var targetMethod = AccessTools.Method(typeof(CardPile), targetMethodName);
+        if (targetMethod == null)
+        {
+            ModLog.Warn($"Missing CardPile method: {targetMethodName}");
+            return;
+        }
+
+        harmony.Patch(targetMethod, prefix: new HarmonyMethod(prefix));
+    }
+
     private static void ShouldPlayPostfix(
         CombatState combatState,
         CardModel card,
@@ -114,6 +156,9 @@ public static class HookRegistry
         AutoPlayType autoPlayType,
         ref bool __result)
     {
+        // Keep an up-to-date hand position snapshot during play validation.
+        FlowRuntimeState.RefreshFromHand(combatState);
+
         if (!__result)
         {
             return;
@@ -125,18 +170,41 @@ public static class HookRegistry
         }
     }
 
-    private static void BeforeCardPlayedPostfix(CombatState combatState, CardPlay cardPlay)
+    private static void BeforeCardPlayedPrefix(CombatState combatState, CardPlay cardPlay)
     {
-        FlowRuntimeState.CaptureFromHand(cardPlay.Card);
+        if (cardPlay?.Card == null)
+        {
+            return;
+        }
+
+        // Snapshot by CardPlay so OnPlay always reads the exact play instance.
+        FlowRuntimeState.CaptureFromHand(cardPlay);
     }
 
     private static void AfterCardPlayedPostfix(CombatState combatState, PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        FlowRuntimeState.Clear(cardPlay.Card);
+        FlowRuntimeState.Clear(cardPlay);
+        FlowRuntimeState.RefreshFromHand(combatState);
+    }
+
+    private static void CardPileRemoveInternalPrefix(CardPile __instance, CardModel card, bool silent)
+    {
+        if (__instance == null || card == null)
+        {
+            return;
+        }
+
+        if (__instance.Type != PileType.Hand)
+        {
+            return;
+        }
+
+        FlowRuntimeState.CaptureFromPile(__instance, card);
     }
 
     private static void BeforeCombatStartPostfix(object runState, CombatState combatState)
     {
+        FlowRuntimeState.ClearAll();
         BreezeService.ResetForCombat(combatState);
     }
 
@@ -165,14 +233,7 @@ public static class HookRegistry
         }
 
         relic.Flash();
-        try
-        {
-            BreezeService.Gain(creature, 1, creature, cardSource).GetAwaiter().GetResult();
-        }
-        catch (Exception ex)
-        {
-            ModLog.Error($"Failed to grant Breeze on block gain: {ex}");
-        }
+        BreezeService.Gain(creature, 1, creature, cardSource).GetAwaiter().GetResult();
     }
 
     private static void EnergyCounterReadyPostfix(NEnergyCounter __instance)

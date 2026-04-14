@@ -1,10 +1,16 @@
 {
-  "majoumonogatari-sts2mods.cecily.strike.title": "Strike",
-  "majoumonogatari-sts2mods.cecily.strike.description": "Deal {Damage:diff()} damage.",
-  "majoumonogatari-sts2mods.cecily.defend.title": "Defend",
-  "majoumonogatari-sts2mods.cecily.defend.description": "Gain {Block:diff()} [gold]Block[/gold].",
-  "majoumonogatari-sts2mods.cecily.wind_bullet.title": "Wind Bullet",
-  "majoumonogatari-sts2mods.cecily.wind_bullet.description": "Deal damage equal to {Damage:diff()} plus your current [kw]Breeze[/kw]. Then lose [blue]2[/blue] [kw]Breeze[/kw]. [kw]Flow (Left)[/kw]: gain [blue]{FlowGain:diff()}[/blue] [kw]Breeze[/kw].",
-  "majoumonogatari-sts2mods.cecily.spring_tuft.title": "Spring Tuft",
-  "majoumonogatari-sts2mods.cecily.spring_tuft.description": "Gain {Block:diff()} [gold]Block[/gold] {Repeat:diff()} times. [kw]Flow (Left)[/kw]: draw [blue]1[/blue]. [kw]Flow (Right)[/kw]: discard [blue]1[/blue]."
+  "MAJOUMONOGATARI_STS2MODS_CECILY_STRIKE.title": "Strike",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_STRIKE.description": "Deal {Damage:diff()} damage.",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_DEFEND.title": "Defend",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_DEFEND.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_WIND_BULLET.title": "Wind Bullet",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_WIND_BULLET.description": "Deal damage equal to {Damage:diff()} plus your current [kw]Breeze[/kw]. Then lose [blue]2[/blue] [kw]Breeze[/kw]. [kw]Flow (Left)[/kw]: gain [blue]{FlowGain:diff()}[/blue] [kw]Breeze[/kw].",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_SPRING_TUFT.title": "Spring Tuft",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_SPRING_TUFT.description": "Gain {Block:diff()} [gold]Block[/gold] {Repeat:diff()} times. [kw]Flow (Left)[/kw]: draw [blue]1[/blue]. [kw]Flow (Right)[/kw]: discard [blue]1[/blue].",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_CONDENSATION.title": "Condensation",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_CONDENSATION.description": "Gain [blue]{BreezeGain:diff()}[/blue] [kw]Breeze[/kw]. Link: gain [blue]{LinkBreezeGain:diff()}[/blue] [kw]Breeze[/kw].",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_TRAP.title": "Trap",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_TRAP.description": "Gain [blue]{Thorns:diff()}[/blue] [kw]Thorns[/kw] this turn.",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BLOSSOM_WAY.title": "Blossom Way",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BLOSSOM_WAY.description": "Gain {Block:diff()} [gold]Block[/gold] {Repeat:diff()} times. [kw]Flow (Left)[/kw]: draw [blue]1[/blue], it costs [blue]0[/blue] this turn. [kw]Flow (Right)[/kw]: Exhaust [blue]1[/blue] card from your hand."
 }

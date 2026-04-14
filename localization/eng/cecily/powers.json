@@ -1,5 +1,5 @@
 {
-  "majoumonogatari-sts2mods.cecily.breeze_power.title": "Breeze",
-  "majoumonogatari-sts2mods.cecily.breeze_power.description": "A resource used by Cecily cards.",
-  "majoumonogatari-sts2mods.cecily.breeze_power.smartDescription": "Current [gold]Breeze[/gold]: [blue]{Amount}[/blue]."
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BREEZE_POWER.title": "Breeze",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BREEZE_POWER.description": "A resource used by Cecily cards.",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BREEZE_POWER.smartDescription": "Current [gold]Breeze[/gold]: [blue]{Amount}[/blue]."
 }

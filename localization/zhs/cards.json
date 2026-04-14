@@ -1,10 +1,16 @@
 {
-  "majoumonogatari-sts2mods.cecily.strike.title": "打击",
-  "majoumonogatari-sts2mods.cecily.strike.description": "造成 {Damage:diff()} 点伤害。",
-  "majoumonogatari-sts2mods.cecily.defend.title": "防御",
-  "majoumonogatari-sts2mods.cecily.defend.description": "获得 {Block:diff()} 点[gold]格挡[/gold]。",
-  "majoumonogatari-sts2mods.cecily.wind_bullet.title": "风弹",
-  "majoumonogatari-sts2mods.cecily.wind_bullet.description": "造成等同于 {Damage:diff()} + 当前[kw]微风[/kw]层数的伤害。然后失去 [blue]2[/blue] 点[kw]微风[/kw]。[kw]流场（左）[/kw]：获得 [blue]{FlowGain:diff()}[/blue] 点[kw]微风[/kw]。",
-  "majoumonogatari-sts2mods.cecily.spring_tuft.title": "春絮",
-  "majoumonogatari-sts2mods.cecily.spring_tuft.description": "获得 {Block:diff()} 点[gold]格挡[/gold]，重复 {Repeat:diff()} 次。[kw]流场（左）[/kw]：抽 [blue]1[/blue]。 [kw]流场（右）[/kw]：弃 [blue]1[/blue]。"
+  "MAJOUMONOGATARI_STS2MODS_CECILY_STRIKE.title": "打击",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_STRIKE.description": "造成 {Damage:diff()} 点伤害。",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_DEFEND.title": "防御",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_DEFEND.description": "获得 {Block:diff()} 点[gold]格挡[/gold]。",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_WIND_BULLET.title": "风弹",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_WIND_BULLET.description": "造成等同于 {Damage:diff()} + 当前[kw]微风[/kw]层数的伤害。然后失去 [blue]2[/blue] 点[kw]微风[/kw]。[kw]流场（左）[/kw]：获得 [blue]{FlowGain:diff()}[/blue] 点[kw]微风[/kw]。",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_SPRING_TUFT.title": "春絮",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_SPRING_TUFT.description": "获得 {Block:diff()} 点[gold]格挡[/gold]，重复 {Repeat:diff()} 次。[kw]流场（左）[/kw]：抽 [blue]1[/blue]。 [kw]流场（右）[/kw]：弃 [blue]1[/blue]。",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_CONDENSATION.title": "凝聚",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_CONDENSATION.description": "获得 [blue]{BreezeGain:diff()}[/blue] 点[kw]微风[/kw]。连接：额外获得 [blue]{LinkBreezeGain:diff()}[/blue] 点[kw]微风[/kw]。",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_TRAP.title": "陷阱",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_TRAP.description": "本回合获得 [blue]{Thorns:diff()}[/blue] 点[kw]荆棘[/kw]。",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BLOSSOM_WAY.title": "散乱花",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BLOSSOM_WAY.description": "获得 {Block:diff()} 点[gold]格挡[/gold]，重复 {Repeat:diff()} 次。[kw]流场（左）[/kw]：抽 [blue]1[/blue]，其本回合耗能变为 [blue]0[/blue]。 [kw]流场（右）[/kw]：从手牌中选择 [blue]1[/blue] 张牌消耗。"
 }

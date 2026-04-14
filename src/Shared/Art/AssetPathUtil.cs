@@ -30,7 +30,10 @@ public static class AssetPathUtil
         }
 
         var dotIndex = entryId.LastIndexOf('.');
-        var name = dotIndex < 0 ? entryId : entryId[(dotIndex + 1)..];
+        var raw = dotIndex < 0 ? entryId : entryId[(dotIndex + 1)..];
+
+        const string cecilyPrefix = "MAJOUMONOGATARI_STS2MODS_CECILY_";
+        var name = raw.StartsWith(cecilyPrefix) ? raw[cecilyPrefix.Length..] : raw;
         return name.Trim().ToLowerInvariant();
     }
 }

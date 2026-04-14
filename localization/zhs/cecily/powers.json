@@ -1,5 +1,5 @@
 {
-  "majoumonogatari-sts2mods.cecily.breeze_power.title": "微风",
-  "majoumonogatari-sts2mods.cecily.breeze_power.description": "希赛莉部分卡牌会使用的资源。",
-  "majoumonogatari-sts2mods.cecily.breeze_power.smartDescription": "当前[gold]微风[/gold]： [blue]{Amount}[/blue]。"
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BREEZE_POWER.title": "微风",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BREEZE_POWER.description": "希赛莉部分卡牌会使用的资源。",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BREEZE_POWER.smartDescription": "当前[gold]微风[/gold]： [blue]{Amount}[/blue]。"
 }

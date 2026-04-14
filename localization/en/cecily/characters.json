@@ -1,4 +1,13 @@
 {
+  "MAJOUMONOGATARI_STS2MODS_CECILY.title": "Cecily",
+  "MAJOUMONOGATARI_STS2MODS_CECILY.titleObject": "Cecily",
+  "MAJOUMONOGATARI_STS2MODS_CECILY.description": "A half-witch born with a talent for manipulating tiny air currents. She was accidentally teleported into the Spire by a friend's experiment.",
+  "MAJOUMONOGATARI_STS2MODS_CECILY.pronounSubject": "she",
+  "MAJOUMONOGATARI_STS2MODS_CECILY.pronounObject": "her",
+  "MAJOUMONOGATARI_STS2MODS_CECILY.pronounPossessive": "hers",
+  "MAJOUMONOGATARI_STS2MODS_CECILY.possessiveAdjective": "her",
+  "MAJOUMONOGATARI_STS2MODS_CECILY.cardsModifierTitle": "Cecily Cards",
+  "MAJOUMONOGATARI_STS2MODS_CECILY.cardsModifierDescription": "Cecily cards will now appear in rewards and shops.",
   "majoumonogatari-sts2mods.cecily.title": "Cecily",
   "majoumonogatari-sts2mods.cecily.titleObject": "Cecily",
   "majoumonogatari-sts2mods.cecily.description": "A half-witch born with a talent for manipulating tiny air currents. She was accidentally teleported into the Spire by a friend's experiment.",
