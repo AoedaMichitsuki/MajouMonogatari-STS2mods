@@ -1,88 +1,161 @@
 薇斯特利亚 HP：40/40 初始金币：99
 本体为【猫群之精怪】的魔女。因为希赛莉来了，所以跟着来了。
-初始遗物：分散意志：当你死亡时，失去一半的生命上限并复活。可以生效3次
-强化初始遗物：后备计划：获得这件遗物时，提升20点生命上限。当你死亡时，失去一半的生命上限并复活。可以生效4次
+A Witch whose true form is a Feline Spirit. She followed Cicely here simply because she came to the Spire.
+初始遗物：天生魔法：猫 The Talent: Feline ：当你死亡时，失去一半的生命上限并复活。可以生效3次
+Upon death, lose half of your Max HP and Revive. Can be triggered 3 times.
+强化初始遗物：后备计划 Plan B ：获得这件遗物时，提升20点生命上限。当你死亡时，失去一半的生命上限并复活。可以生效4次
+Upon pickup, raise your Max HP by 20. Upon death, lose half of your Max HP and Revive. Can be triggered 4 times.
 *向上取整
 专属遗物:
-昂贵猫窝（罕见）：场上可以多存在2个【分身】。
-猫薄荷（稀有）：分身死亡时，你恢复2点生命值。
+豪华猫窝（罕见） Luxury cat bed ：场上可以多存在2个【分身】。
+You can have up to 2 additional Duplicates on the field.
+猫薄荷（稀有） Catnip：分身死亡时，你恢复2点生命值。
+Whenever a Duplicate dies, recover 2 HP.
 双尾挂坠（罕见）：复活时，获得3点能量，抽5张牌
+Upon Reviving, gain 3 Energy and Draw 5 cards.
 黑巫三角帽（稀有）：你的下2张卡牌奖励获得附魔【本能】
+Your next 2 card rewards will have the Instinct Enchantment.
 特殊词条的说明：
-分身：【分身】会优先承受任何你受到的伤害。【分身】死亡时，获得等同于其生命上限的最大生命值，获得1层【魔力碎片】。最多存在3个【分身】。本场战斗结束时，所有【分身】死亡。如果【分身】所需的血量上限不够，无法【分身】。
-魔力碎片：累计达到5时，下一张打出的卡牌费用变为0。随后清空层数。
-猫步：受到攻击时，消耗最多4层，每有1层使这次伤害有25%的概率变为0。
-野性：打出攻击牌时，如果拥有【野性】，消耗1层额外造成1次伤害。
-通感：打出本牌时，每个分身都额外打出一次本牌。
-咏唱：见希赛莉的卡表描述。
+分身 Duplicate ：【分身】会优先承受任何你受到的伤害。【分身】死亡时，获得等同于其生命上限的最大生命值，获得1层【魔力碎片】。最多存在3个【分身】。本场战斗结束时，所有【分身】死亡。如果【分身】所需的血量上限不够，无法【分身】。
+Minion. Duplicates prioritize taking any damage intended for you. When a Duplicate dies, gain Max HP equal to its Max HP and gain 1 stack of Mana Shard. Max 3 Duplicates. 
+At the end of combat, all Duplicates die. You cannot create a Duplicate if you have insufficient Max HP to provide for it.
+魔力碎片 Mana Shard ：累计达到5时，下一张打出的卡牌费用变为0。随后清空层数。
+When you reach 5 stacks, your next card played costs 0. Then, remove all stacks.
+猫步 Catwalk ：受到攻击时，消耗最多4层，每有1层使这次伤害有25%的概率变为0。
+When attacked, consume up to 4 stacks. Each stack gives a 25% chance to reduce that damage to 0.
+野性 Feral ：打出攻击牌时，如果拥有【野性】，消耗1层额外造成1次伤害。
+When you play an Attack card, if you have Feral, consume 1 stack to deal damage 1 additional time.
+通感 Synesthesia ：打出本牌时，每个分身都额外打出一次本牌。
+When this card is played, each Duplicate plays this card 1 additional time.
+咏唱 Chant ：见希赛莉的卡表描述。
+Refer to Cicely's card list description.
 
 初始
 打击：攻击牌 费用1 造成6（9）点伤害（×4）
+Strike: Deal 6 (9) damage.
 猫抓：攻击牌 费用1 通感。造成4（6）点伤害，给予1层易伤
+Cat Scratch: Synesthesia. Deal 4 (6) damage. Apply 1 Vulnerable.
 防御： 技能牌 费用1 获得5（8）点格挡（×4）
+Defend: Gain 5 (8) Block. (x4)
 灵活分身：技能牌 费用1（0） 将你的10点最大生命值变为1个【分身】
+Agile Duplicate: Transform 10 of your Max HP into 1 Duplicate.
 
 普通：
 灵踪：技能牌 费用1 获得6（9）点格挡。所有分身获得1（2）层【猫步】。
+Phantom Trace: Gain 6 (9) Block. All Duplicates gain 1 (2) Catwalk.
 迅速分身：技能牌 费用2（1） 将你的15点最大生命值变为3个拥有5点最大生命值的【分身】。
+Swift Duplicate: Transform 15 of your Max HP into 3 Duplicates with 5 Max HP each.
 强制剥离：技能牌 费用2 摧毁其他所有【分身】，创造1个拥有你50%最大生命上限的【分身】，这个分身死亡时不会增加你的生命上限。消耗。（保留）
+Forced Detachment: Destroy all other Duplicates. Create 1 Duplicate with 50% of your Max HP. This Duplicate does not increase your Max HP upon death. Exhaust. (Retain.)
 引爆：技能牌 费用2（1） 咏唱。摧毁一个【分身】，所有敌人失去等同于其血量的血量。
+Detonate: Chant. Destroy a Duplicate. ALL enemies lose HP equal to its current HP.
 獠牙：技能牌 费用1 受到5（3）点伤害，获得1层【野性】
+Fangs: Take 5 (3) damage. Gain 1 Feral.
 哈气：技能牌 费用0 给予1（2）层虚弱
+Hiss: Apply 1 (2) Weak.
 模糊视线：技能牌 费用0 通感。获得2（3）点格挡
+Blurred Vision: Synesthesia. Gain 2 (3) Block.
 好奇心：技能牌 费用1 抽1（2）张牌。获得1层【猫步】
+Curiosity: Draw 1 (2) card(s). Gain 1 Catwalk.
 假寐：技能牌 费用1 获得8（11）点格挡。从抽牌堆中随机抽取1张攻击牌加入你的手牌
+Catnap: Gain 8 (11) Block. Add a random Attack from your Draw Pile to your hand.
 列队：技能牌 费用1 通感。获得4（6）点格挡
+Line Up: Synesthesia. Gain 4 (6) Block.
 水晶高墙：技能牌 费用3 获得18（22）点格挡，消耗
+Crystal Wall: Gain 18 (22) Block. Exhaust.
 戏耍：技能牌 费用1 获得7（10）点格挡。敌人在本回合失去2点力量
+Playful: Gain 7 (10) Block. The enemy loses 2 Strength this turn.
 牺牲品：攻击牌 费用1 摧毁一个分身，造成11（14）点伤害。
+Sacrifice: Destroy a Duplicate. Deal 11 (14) damage.
 水晶打击：攻击牌 费用1 获得1（2）层【魔力碎片】。造成8点伤害。
+Crystal Strike: Gain 1 (2) Mana Shard. Deal 8 damage.
 残影袭：攻击牌 费用2 造成8（11）点伤害。如果本回合有【分身】死亡，此牌在本回合费用变为0
+Afterimage Crash: Deal 8 (11) damage. If a Duplicate died this turn, this card costs 0.
 抓痕：攻击牌 费用0 造成3（5）点伤害。如果此牌消耗了【野性】，获得1层【野性】
+Scratch: Deal 3 (5) damage. If this card consumes Feral, gain 1 Feral.
 乱舞：攻击牌 费用4（3） 造成20点伤害。保留
+Flurry: Deal 20 damage. Retain.
 飞扑：攻击牌 费用1 造成9（12）点伤害。如果此牌杀死了敌人，将你的5点最大生命值变为一个【分身】
+Pounce: Deal 9 (12) damage. If this kills an enemy, transform 5 of your Max HP into 1 Duplicate.
 协同狩猎：攻击牌 费用2 造成10（13）点伤害。你每有一个【分身】，给予敌人1层易伤
+Coordinated Hunt: Deal 10 (13) damage. Apply 1 Vulnerable for each Duplicate you have.
 连环抓挠：攻击牌 费用1 造成2点伤害2（3）次。【野性】对于本卡牌的效果翻倍
+Chain Scratch: Deal 2 damage 2 (3) times. Feral's effect is doubled for this card.
 
 
 罕见
 暗夜视觉：能力牌 费用2（1） 每当你打出1张“通感”牌，获得1层【野性】
+Night Vision: Whenever you play a Synesthesia card, gain 1 Feral.
 法力回流：能力牌 费用1 每当你打出一张费用大于等于2的牌，获得1层【魔力碎片】。（固有）
+Mana Reflux: Whenever you play a card that costs 2 or more, gain 1 Mana Shard. (Innate.)
 视觉共享：能力牌 费用1  每当你的【分身】死亡，给予随机一个敌人1层虚弱，抽1张牌。（固有）
+Shared Vision: Whenever a Duplicate dies, apply 1 Weak to a random enemy and Draw 1 card. (Innate.)
 碎片剥落：能力牌 费用2 每当你失去最大生命值时，获得1（2）层【魔力碎片】
+Shard Spalling: Whenever you lose Max HP, gain 1 (2) Mana Shard.
 余温：能力牌 费用1 每个回合开始时，你每有1个分身，获得4（6）点格挡
+Residual Warmth: At the start of your turn, gain 4 (6) Block for each Duplicate you have.
 猫之灵巧：能力牌 费用2 你的每层【猫步】提供的闪避概率提高到50%。（固有）
+Feline Agility: Increase the Evasion chance of each stack of Catwalk to 50%. (Innate.)
 恶意置换：能力牌 费用2（1） 如果存在【分身】，你受到的负面效果代由【分身】承担。【分身】死亡时，继承它身上的负面效果
+Malicious Swap: If you have a Duplicate, any Debuffs applied to you are transferred to a Duplicate instead. When a Duplicate dies, you inherit its Debuffs.
 恶作剧之吻：能力牌 费用3 抽到本牌时，随机化本牌耗能。每回合开始时，选择2张手牌，本回合下次打出它们前，互换其耗能。（固有）
+Mischievous Kiss: When Drawn, randomize this card's Cost. At the start of your turn, choose 2 cards in hand; swap their Costs until they are played. (Innate.)
 果断：能力牌 费用1 创造分身时，每个分身获得3（5）点临时生命上限。
+Decisiveness: Whenever you create a Duplicate, it gains 3 (5) temporary Max HP.
 反哺：技能牌 费用1 如果你拥有【分身】，选择一个【分身】摧毁。抽3（4）张牌
+Feeding Back: If you have a Duplicate, destroy a chosen Duplicate and Draw 3 (4) cards.
 猫影重重：技能牌 费用2 选择场上一个【分身】复制。复制出的分身死亡时不会提高你的生命上限。消耗。虚无（）
+Infinite Shadows: Choose a Duplicate on the field and copy it. The copied Duplicate does not increase your Max HP upon death. Exhaust. Ethereal. (No longer Ethereal.)
 质量转换：技能牌 费用2 摧毁一个【分身】。获得等同于其生命上限（的2倍）的格挡，消耗
-错误选择：技能牌 费用1 给予敌人99层虚弱。你失去3（2）点最大生命值。消耗
+Mass Conversion: Destroy a Duplicate. Gain Block equal to its Max HP (double its Max HP). Exhaust.
+错误选择：技能牌 费用1 给予敌人99层虚弱。你失去2（1）点最大生命值。消耗
+Wrong Choice: Apply 99 Weak. Lose 2 (1) Max HP. Exhaust.
 九命：技能牌 费用1 咏唱。获得等同于你血量损失值的格挡（所得等同于你和你所有分身血量损失值之和的格挡）
+Nine Lives: Chant. Gain Block equal to your missing HP (Gain Block equal to the total missing HP of you and all Duplicates).
 诱饵：技能牌 费用1（0）。将你的1点最大生命值变为1个【分身】。
+Decoy: Transform 1 Max HP into 1 Duplicate.
 灵魂缝合：技能牌 费用1（0） 选择1个分身，使其失去5点生命上限，你获得5点生命上限，恢复5点生命值。消耗
+Soul Stitching: Choose a Duplicate. It loses 5 Max HP, 和 you gain 5 Max HP and recover 5 HP. Exhaust.
 灵动提取物：技能牌 费用1 通感。恢复2（3）点生命值。消耗
-汲取：技能牌 费用1 咏唱。摧毁一个【分身】，恢复4（6）点生命值。消耗
+Nimble Extract: Synesthesia. Recover 2 (3) HP. Exhaust.
+汲取：技能牌 费用1 咏唱。摧毁一个【分身】，恢复4（6）点生命值。
+Siphon: Chant. Destroy a Duplicate. Recover 4 (6) HP.
 受惊：技能牌 费用0 受到3点伤害，抽2（3）张牌
+Startled: Take 3 damage. Draw 2 (3) cards.
 引鼠出洞：技能牌 费用1 通感。本回合敌人失去1（2）点力量
+Lure the Mouse: Synesthesia. The enemy loses 1 (2) Strength this turn.
 蜂拥而上：攻击牌 费用2 通感。造成6点（8）伤害，获得1层【野性】
+Swarming: Synesthesia. Deal 6 (8) damage. Gain 1 Feral.
 撕开伤口：攻击牌 费用1 造成6（9）点伤害。如果触发了【野性】，给予敌人2（3）层易伤
+Rip Wound: Deal 6 (9) damage. If Feral was triggered, apply 2 (3) Vulnerable.
 过载打击：攻击牌 费用2 造成16（22）点伤害。如果打出本卡牌时候费用为0，抽1张牌
+Overload Strike: Deal 16 (22) damage. If this card's Cost is 0 when played, Draw 1 card.
 独舞：攻击牌 费用X 造成6（8）点伤害X次。消耗所有【魔力碎片】，每消耗一层多造成1次伤害
+Solo Dance: Deal 6 (8) damage X times. Consume all Mana Shards; deal damage 1 additional time for each stack consumed.
 
 稀有
 云端漫步：能力牌 费用2：每回合开始时，获得1层【猫步】。虚无（）
+Cloudwalk: At the start of your turn, gain 1 Catwalk. Ethereal. (No longer Ethereal.)
+Shadow Contract
 影子契约：能力牌 费用1（0）：你可以打出状态牌。每打出一张状态牌，将其消耗并将你2点最大生命值变为1个【分身】
+Shadow Contract: You can play Status cards. Whenever you play a Status card, Exhaust it and transform 2 of your Max HP into 1 Duplicate.
 *如果分身过多，打出状态牌只会将其消耗，不会扣除血量上限或创造分身
 精打细算：能力牌 费用1（0）：打出一张0费牌时，你和你的所有分身获得4点格挡
+Calculated: Whenever you play a 0-cost card, you and all Duplicates gain 4 Block.
 吞噬形态：能力牌 费用3：每当你在本场战斗中杀死1个敌人，获得1（2）点生命上限
+Devouring Form: Whenever you kill an enemy this combat, gain 1 (2) Max HP.
 集群护盾：技能牌 费用2 所有【分身】获得8（12）点临时生命上限。消耗
+Swarm Shield: All Duplicates gain 8 (12) temporary Max HP. Exhaust.
 *临时生命上限在分身死亡时不会增加你的最大生命值
 狩猎姿态：技能牌 费用1（0） 本回合，你的【野性】不再被消耗。消耗
+Hunting Stance: This turn, Feral is no longer consumed. Exhaust.
 灵能增幅：技能牌 费用2 本回合，【魔力碎片】的触发需求改为3。消耗（）
+Psionic Amplification: This turn, the requirement to trigger Mana Shard is reduced to 3. Exhaust. (No longer Exhausts.)
 终结一爪：攻击牌 费用1 造成14（18）点伤害。如果你没有【野性】，获得2层【野性】
+Finishing Claw: Deal 14 (18) damage. If you have no Feral, gain 2 Feral.
 
 先古
 （强化自灵活分身）碎片灵魂：技能牌 费用1（0） 将你的10点最大生命值变为一个【灵魂分身】。
+Fragmented Soul: Transform 10 of your Max HP into a Soul Duplicate.
 灵魂分身：被创造时，获得等同于自己生命上限的临时生命上限。打出【通感】牌时，恢复2点生命
+Soul Duplicate: Minion. When created, gain Temporary Max HP equal to its Max HP. Whenever a Synesthesia card is played, recover 2 HP.
