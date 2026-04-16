@@ -224,7 +224,7 @@ StS2.CecilyMod/
 - `HookRegistry`（统一注册）
 - Harmony patch：手牌上限、咏唱中心动画、能量禁令补强
 
-### 8.4 所有实体化方式均参考/Users/luozikun/STS2Project/ModTemplate-StS2/content和https://glitchedreme.github.io/SlayTheSpire2ModdingTutorials/的教程
+### 8.4 所有实体化方式均参考STS2Project/ModTemplate-StS2/content和https://glitchedreme.github.io/SlayTheSpire2ModdingTutorials/的教程
 
 ### 8.5 模型归位与注册方式（强约束）
 
