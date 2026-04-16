@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils.Attributes;
 using MajouMonogatari_STS2mods.Characters.Cecily.Cards;
@@ -61,7 +62,12 @@ public class CecilySpringTuftCard() : CecilyCard(0, CardType.Skill, CardRarity.B
             Cancelable = false
         };
 
-        await CardSelectCmd.FromHandForDiscard(choiceContext, owner, discardPrefs, card => true, this);
+        var selectedCards = await CardSelectCmd.FromHand(choiceContext, owner, discardPrefs, card => true, this);
+        var selected = selectedCards?.FirstOrDefault();
+        if (selected != null)
+        {
+            await CardCmd.Discard(choiceContext, selected);
+        }
     }
 
     protected override void OnUpgrade()

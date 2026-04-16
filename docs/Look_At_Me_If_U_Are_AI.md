@@ -138,52 +138,8 @@ StS2.CecilyMod/
 
 ---
 
-## 7. 卡池清单（设定更新以 Character Design 为准）
-
-### 7.1 初始
-- 打击（Strike）：1费 攻击 6（9）伤害 ×4
-- 风弹（Wind Bullet）：0费 攻击，造成 6+当前微风 伤害；失去2微风；流场（左）：获得2（4）微风
-- 防御（Defend）：1费 技能，获得5（8）格挡 ×4
-- 春絮（Catkin）：0费 技能，获得2格挡 2（3）次；流场（左）：抽1；流场（右）：弃1
-
-### 7.2 普通
-- 凝聚（Condensation）：1费 技能，获得3微风；连接：额外+2
-- 浅呼吸（Shallow Breathing）：1费 技能，咏唱；获得10（14）格挡
-- 回想（Think Back）：0费 技能，选择弃牌堆1张牌移至手牌最左并升级
-- 翻书（Blow The Pages）：1费 技能，抽1（2），将1张手牌平移左1
-- 憧憬（Longing）：1（0）费 技能，咏唱；流场（右）：获得5微风
-- 自然而然（As It Will Be）：0费 技能，选1张手牌左/右平移1，消耗（保留）
-- 吹气（Blow）：0费 技能，选1张手牌平移右1（2）
-- 日积月累（Accumulation）：2（1）费 技能，获得1力量；下回合开始获得1敏捷，消耗
-- 结伴（Make Company）：1费 技能，获得3（4）格挡2次；流场（左）：下回合开始获得1能量
-- 设置（Setting）：2费 技能，咏唱；获得8（10）格挡；流场（右）：抽牌堆随机3张技能入手
-- 和蔼（Pleasantly）：0费 技能，消耗3微风，获得8（10）格挡
-- 精灵群聚（Gathering Elves）：0费 技能，消耗4微风，获得2能量，消耗（）
-- 风滚球（Tumbleball）：1费 攻击，消耗2（1）微风，7伤害；流场（左）：额外一次
-- 大爆发（Outburst）：1费 攻击，消耗全部微风，每点造成1（2）全体伤害，加入2晕眩
-- 席卷（Sweep Out）：1费 攻击，对全体6（8）伤害；连接：全体1层虚弱
-- 树枝敲打（Branch Knock）：0费 攻击，1伤害4（5）次；连接：本牌伤害+1
-- 焦躁（Anxiety）：1费 攻击，3（4）伤害3次并施加1易伤；左侧每有1牌自伤1
-- 全力以赴（Full Potential）：2费 攻击，22（26）伤害，弃最左1张；连接：再弃1
-- 流动打击（Flowing Strike）：1费 攻击，8（10）伤害；连接：抽1并将其左移1
-- 乱回旋（Massy Swirling）：1费 攻击，消耗1微风，11（14）伤害，加入2乱流
-- 乱流（Turbulence）：状态，抽到自动打出并消耗，打乱手牌顺序
-
-### 7.3 罕见
-- 按 Character_design_Cicely.txt 最新数值：风刃改为 22（26）伤害并施加1（2）虚弱。
-- 对流切割改为对全体16伤害；连接：获得3（5）微风并回手。
-- 裂空升级后额外获得2能量。
-- 其余罕见卡按 Character design 文本实现，不沿用旧数值冲突项。
-
-### 7.4 稀有
-- 思忖成长（Introspection）：1（0）费，按费用升序稳定排序。
-- 终末气息（Final Breathe）：2费，消耗所有非攻击牌；连接：获得2（3）能量。
-- 岚之歌（Tempest）：本回合流场牌获得“接续”。
-- 余韵（Lingering Charm）：重复上回合最后一张牌的数值效果，不复制负面词条。
-- 咏叹调（Aria）：生成终章（+）。
-- 终章（Finale）：2费 保留，20（24）伤害；每移动1格 +4（6）伤害；离手重置。
-
-
+## 7. 卡池清单
+以 Character Design 为准
 ---
 
 ## 8. 关键接口与实现要求
@@ -224,7 +180,10 @@ StS2.CecilyMod/
 - `HookRegistry`（统一注册）
 - Harmony patch：手牌上限、咏唱中心动画、能量禁令补强
 
-### 8.4 所有实体化方式均参考/Users/luozikun/STS2Project/ModTemplate-StS2/content和https://glitchedreme.github.io/SlayTheSpire2ModdingTutorials/的教程
+### 8.4 教程、模版、日志
+- 所有实体化方式均参考STS2Project/ModTemplate-StS2/content和https://glitchedreme.github.io/SlayTheSpire2ModdingTutorials/的教程
+- 实践项目模版可以在/Users/luozikun/Unity Project/Manbo/SlayTheSpire2-Modding-Simple-Tutorial找到
+- 日志在~/Library/Application Support/SlayTheSpire2/log
 
 ### 8.5 模型归位与注册方式（强约束）
 

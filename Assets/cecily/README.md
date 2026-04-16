@@ -1,6 +1,6 @@
 # Cecily 美术资源交付规范
 
-该目录用于承载希赛莉角色相关美术资源，代码侧通过 `CecilyArtProvider` 统一读取。
+该目录用于承载希赛莉角色相关美术资源，代码侧通过 `res://src/CecilyArtProvider.cs` 统一读取。
 
 ## 目录结构
 

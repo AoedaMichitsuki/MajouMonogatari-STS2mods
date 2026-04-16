@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://da60d2xr5fx3j"]
+
+[ext_resource type="Texture2D" uid="uid://fyync80mg4a" path="res://Assets/cecily/character/scenes/IMG_0231.png" id="1_bwuyu"]
+[ext_resource type="Texture2D" uid="uid://bjsrqwa8i1liq" path="res://Assets/cecily/character/scenes/msr_tmp.jpeg" id="2_4ow6b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bwuyu"]
+animations = [{
+"frames": [{
+"duration": 1.51,
+"texture": ExtResource("1_bwuyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_bwuyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_bwuyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_bwuyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_bwuyu")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4ow6b")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 1.0
+}]
+
+[node name="cecily" type="Node2D"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Visuals" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.7249784, -196.03462)
+scale = Vector2(0.48538873, 0.48843965)
+sprite_frames = SubResource("SpriteFrames_bwuyu")
+animation = &"Attack"
+autoplay = "Idle"
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -125.0
+offset_top = -260.0
+offset_right = 125.0
+mouse_filter = 2
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(3, -181)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-2, -362)

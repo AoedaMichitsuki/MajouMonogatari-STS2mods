@@ -22,11 +22,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="docs\Character_design_Cicely" />
-    <Content Include="docs\Character_design_Cicely.txt" />
     <Content Include=".gitignore" />
     <Content Include="docs\Character_design_Wisteria" />
     <Content Include="docs\Look_At_Me_If_U_Are_AI.md" />
     <Content Include="docs\Look_At_Me_If_U_Are_AI.md" />
     <Content Include="docs\TacticalDocument.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="example-v4-csharp\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="example-v4-csharp\**" />
   </ItemGroup>
 </Project>

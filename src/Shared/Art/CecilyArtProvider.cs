@@ -3,14 +3,16 @@ namespace MajouMonogatari_STS2mods.Shared.Art;
 public sealed class CecilyArtProvider
 {
     private const string Root = "Assets/cecily";
+    private static readonly string CharacterVisualScenePrimary = AssetPathUtil.ResPath(Root, "character/scenes/cecily_visual.tscn");
+    private static readonly string CharacterVisualSceneFallback = AssetPathUtil.ResPath(Root, "scenes/cecily_visual.tscn");
 
     public static CecilyArtProvider Instance { get; } = new();
 
-    private CecilyArtProvider()
+    private CecilyArtProvider() 
     {
     }
 
-    public string CharacterVisualScenePath => AssetPathUtil.ResPath(Root, "character/scenes/cecily_visual.tscn");
+    public string CharacterVisualScenePath => FirstExistingOrEmpty(CharacterVisualScenePrimary, CharacterVisualSceneFallback);
 
     public string CharacterIconTexturePath => ExistingOrEmpty(AssetPathUtil.ResPath(Root, "character/ui/icon_texture.png"));
 
@@ -74,5 +76,16 @@ public sealed class CecilyArtProvider
     private static string ExistingOrEmpty(string path)
     {
         return AssetPathUtil.ResolveOrFallback(path, string.Empty);
+    }
+
+    private static string FirstExistingOrEmpty(string first, string second)
+    {
+        var primary = ExistingOrEmpty(first);
+        if (!string.IsNullOrWhiteSpace(primary))
+        {
+            return primary;
+        }
+
+        return ExistingOrEmpty(second);
     }
 }
