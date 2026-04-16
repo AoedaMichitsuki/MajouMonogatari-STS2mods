@@ -169,6 +169,43 @@ CreatureAnimationRuntime.TryPlayCustom(
 - `returnToIdle`：播放完成后是否自动回待机。
 - `forceRestart`：同名动画正在播放时是否强制重播。
 
+### 6.3 卡牌里“具体怎么插”（可直接参考）
+下面示例演示：先手动播一次 `Attack`，再结算伤害，最后再播一次自定义收招动画。
+
+```csharp
+protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+{
+    if (cardPlay?.Target == null)
+    {
+        return;
+    }
+
+    // 1) 出手前摇（按卡牌拥有者生物播放，也就是主要的攻击动画）
+    CreatureAnimationRuntime.TryPlayCustomForCardOwner(
+        this,
+        CreatureAnimationRuntime.AnimationNames.Attack,
+        fromEnd: false,
+        returnToIdle: false,
+        forceRestart: true);
+
+    // 2) 结算伤害
+    await CreatureCmd.Damage(choiceContext, cardPlay.Target, DynamicVars.Damage, Owner?.Creature, this);
+
+    // 3) 收招（用自定义动画名，播完回 Idle，当然也可以没有）
+    CreatureAnimationRuntime.TryPlayCustomForCardOwner(
+        this,
+        "AttackRecover",
+        fromEnd: false,
+        returnToIdle: true,
+        forceRestart: true);
+}
+```
+
+插入建议：
+- 想“先动再打”：把调用放在伤害命令前。
+- 想“打完再演出”：把调用放在伤害命令后。
+- 需要多段演出：在 `OnPlay` 内多次调用，或改用 `RegisterCardPlaySequence(...)`。
+
 ## 7) 配置示例（推荐放到 `ModBootstrap.Initialize`）
 
 ### 7.1 改写全局 Cast 动画
