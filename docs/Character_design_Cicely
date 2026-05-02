@@ -38,7 +38,7 @@ When triggering Flow(Left/Right), if there is only one Status or Curse card to t
 初始
 打击 Strike：费用1 攻击牌 造成6（9）点伤害 （x4）
 Deal 6(9) damage.
-风弹 Wind Bullet：费用0 攻击牌 造成等同于6+当前【微风】层数的伤害。随后失去2点【微风】，流场（左）：获得2（4）点【微风】
+风弹 Wind Bullet：费用0 攻击牌 造成等同于6+当前【微风】层数的伤害。失去2点【微风】，流场（左）：获得2（4）点【微风】
 Deal damage equal to 6 + your current Breeze. Lose 2 Breeze. Flow(Left): Gain 2(4) Breeze.
 防御 Defend：费用1 技能牌 获得5（8）点格挡 （x4）
 Gain 5(8) Block.
@@ -47,8 +47,8 @@ Gain 2 Block 2(3) times. Flow(Left): Draw 1 card. Flow(Right): Discard 1 card.
 普通：
 凝聚 Condensation：技能牌 费用1 获得3点【微风】（连接：额外获得2点）
 Gain 3 Breeze. (Link: Gain 2 additional Breeze.)
-浅呼吸 Shallow Breathe：技能牌 费用1 咏唱。获得10（14）点格挡
-Chant. Gain 10 (14) Block.
+浅呼吸 Shallow Breathe：技能牌 费用1 咏唱。获得16（18）点格挡
+Chant. Gain 16 (18) Block.
 *【咏唱】牌如果不被丢弃或移动，就会卡住你原本手牌中所有的流场（右）的效果。但丢弃后如果不能做到回手又会导致花了费用却无法生效，这一点值得注意。这也是为什么这张【浅呼吸】给的数值相当慷慨（当然也因为它是一张无法加入本回合循环的跨回合收益卡）
 回想 Think Back：技能牌 费用0 将你选择的1张牌从弃牌堆移动到手牌最左侧（并升级）
 Move a chosen card from your Discard Pile to the leftmost position in your hand (and Upgrade it).
@@ -96,8 +96,8 @@ The first time you apply a Debuff to an enemy each turn, apply it one additional
 Whenever you gain 10 (7) Breeze, gain 1 Dexterity.
 高压环境 Hyperbaric：能力牌 费用1 每当你失去【微风】时，对所有敌人造成3（5）点伤害
 Whenever you lose Breeze, deal 3 (5) damage to ALL enemies.
-定风波 Tranquillity：能力牌 费用1 每回合开始时，如果本回合触发过“咏唱”，将一张随机的、在本回合费用为 0 的罕见技能牌放入手牌。虚无（）
-At the start of your turn, if Chant was triggered this turn, add a random Uncommon Skill that costs 0 this turn to your hand. Ethereal. (No longer Ethereal.)
+定风波 Tranquillity：能力牌 费用1 每回合开始时，如果本回合触发过“咏唱”，将一张随机的、在本回合费用为 0 的技能牌放入手牌。虚无（）
+At the start of your turn, if Chant was triggered this turn, add a random Skill that costs 0 this turn to your hand. Ethereal. (No longer Ethereal.)
 胡搅蛮缠 Importunated：能力牌 费用1 每当你获得一张状态牌时，将其变为【乱流】。（固有）
 Whenever you gain a Status card, transform it into Turbulence. (Innate.)
 绝对真空 Absolute Vacuum：能力牌 费用 1 (0) 固有。在你的手牌中添加两张【真空】。每个回合结束时，若你手中没有任何锁定中的卡牌，下回合开始时额外获得 1 点能量。
@@ -221,7 +221,7 @@ Deal 1 damage 10 (15) times. Can only be played if your hand is full.
 Deal 8 damage. For this combat, whenever you play a card with Chant, increase this card's damage by 8 (10).
 对流切割 Covection Cut：攻击牌 费用1 对所有敌人造成16点伤害。连接：获得3（5）点【微风】，将本牌放回手牌
 Deal 16 damage to ALL enemies. Link: Gain 3 (5) Breeze and return this card to your hand.
-风洞坍塌 Tunnel Collapsed：攻击牌 费用3 造成16（20）点伤害。流场（左）：本次伤害翻倍。流场（右）：敌人在本回合失去和本卡牌造成伤害一样数额的力量。消耗
+风洞坍塌 Tunnel Collapsed：攻击牌 费用2 造成16（20）点伤害。流场（左）：本次伤害翻倍。流场（右）：敌人在本回合失去和本卡牌造成伤害一样数额的力量。消耗
 Deal 16 (20) damage. Flow (Left): Double this damage. Flow (Right): The enemy loses Strength equal to the damage dealt by this card this turn. Exhaust.
 余韵 Lingering Charm：攻击牌 费用 1 咏唱。造成 9(12) 点伤害。重复你上回合打出的最后一张牌的效果（不包括此牌）。
 Chant. Deal 9 (12) damage. Repeat the effect of the last card you played last turn (excluding this card).
