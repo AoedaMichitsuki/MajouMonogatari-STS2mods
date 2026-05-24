@@ -289,3 +289,286 @@ CreatureAnimationRuntime.RegisterCardPlaySequence(
 - 需要攻击者出手动画时：优先用 `CommonActions.CardAttack(...)`。
 - 只做“纯伤害结算”且不依赖攻击者 trigger 时：可继续用 `CreatureCmd.Damage(...)`。
 - 若卡牌演出强依赖自定义触发时序：在 `OnPlay` 内显式手动调用 `CreatureAnimationRuntime.TryPlayCustom...`，不要仅依赖引擎 trigger。
+
+---
+
+# 公共机制调用规范
+
+## 1) 机制入口文件
+
+- 连接：`src/Shared/Keywords/Connection/`
+  - `IConnectionCard`
+  - `ConnectionRuntimeState`
+  - `ConnectionSnapshot`
+- 咏唱：`src/Shared/Keywords/Chant/`
+  - `IChantCard`
+  - `ChantScheduler`
+  - `ChantResolutionContext`
+- 锁定：`src/Shared/Keywords/Locked/LockedRuntimeState.cs`
+- 平移/手牌顺序：`src/Shared/Hand/`
+  - `HandOrderService`
+  - `ShiftDirection`
+  - `ShiftResult`
+
+这些机制已经统一接入 `HookRegistry`：
+- `ShouldPlay`：锁定牌不可打出；Breeze 消耗牌继续走原本校验。
+- `BeforeCardPlayed`：捕获连接快照、登记咏唱牌、捕获 Flow 快照。
+- `AfterCardPlayed`：记录本回合打出历史，供下一张牌的连接使用。
+- `ModifyCardPlayResultPileTypeAndPosition`：咏唱牌正常手动打出后回到手牌最右侧。
+- `BeforeTurnEnd`：咏唱牌若仍在手牌，捕获回合末 Flow，并给锁定牌单回合保留。
+- `AfterTurnEnd`：清理本回合锁定。
+- `BeforeHandDraw`：下回合抽牌前，从左到右结算已准备好的咏唱牌。
+
+## 2) 连接 Connection
+
+### 2.1 给卡牌声明连接
+
+带连接效果的卡牌实现 `IConnectionCard`：
+
+```csharp
+public class CecilyCondensationCard()
+    : CecilyCard(1, CardType.Skill, CardRarity.Common, TargetType.Self), IConnectionCard
+{
+}
+```
+
+`CecilyCard.ShouldGlowGoldInternal` 已经统一调用 `ConnectionRuntimeState.ShouldGlow(this)`，所以实现 `IConnectionCard` 后，连接可触发时会进入金光提示逻辑。
+
+### 2.2 在 OnPlay 中判断连接
+
+```csharp
+if (!ConnectionRuntimeState.TryResolve(cardPlay, out var connection) || !connection.IsTriggered)
+{
+    return;
+}
+
+var triggerCount = ConnectionRuntimeState.ConsumeTriggerCount(Owner);
+for (var i = 0; i < triggerCount; i++)
+{
+    // 连接效果
+}
+```
+
+说明：
+- 普通连接：当前牌与本回合上一张已记录的牌类型相同。
+- 远距共鸣这类效果可调用：
+
+```csharp
+ConnectionRuntimeState.SetAnyPreviousCardMode(Owner, enabled: true);
+```
+
+- “下一次连接额外触发 1 次”这类效果调用：
+
+```csharp
+ConnectionRuntimeState.AddBonusTriggers(Owner, 1);
+```
+
+- 本回合已触发连接次数：
+
+```csharp
+var count = ConnectionRuntimeState.GetTriggeredThisTurn(Owner);
+```
+
+## 3) 平移 Shift
+
+所有手牌顺序变更都应走 `HandOrderService`，避免 Flow、UI、遗物监听各写一套。
+
+### 3.1 左/右平移
+
+```csharp
+var result = HandOrderService.Shift(
+    card,
+    ShiftDirection.Left,
+    steps: 1,
+    wrap: false);
+
+if (result.Moved)
+{
+    var movedSteps = result.PrimaryStepsMoved;
+}
+```
+
+### 3.2 理解 Comprehend 的环形平移
+
+```csharp
+HandOrderService.Shift(card, ShiftDirection.Right, steps: 1, wrap: true);
+```
+
+### 3.3 其他手牌顺序操作
+
+```csharp
+HandOrderService.MoveToLeftmost(card);
+HandOrderService.MoveToRightmost(card);
+HandOrderService.MoveToIndex(card, 2);
+HandOrderService.Swap(leftCard, rightCard);
+HandOrderService.Sort(handPile, (a, b) => a.EnergyCost.GetWithModifiers(CostModifiers.All)
+    .CompareTo(b.EnergyCost.GetWithModifiers(CostModifiers.All)));
+```
+
+### 3.4 监听平移事件
+
+给“风量计”这类遗物用：
+
+```csharp
+HandOrderService.CardShifted += result =>
+{
+    if (result.Moved)
+    {
+        // 获得微风
+    }
+};
+```
+
+给“终章”这类关心所有位移的牌用：
+
+```csharp
+HandOrderService.HandOrderChanged += (before, after) =>
+{
+    // 对比 before/after 中某张牌的位置差
+};
+```
+
+## 4) 锁定 Locked
+
+### 4.1 锁定一张牌
+
+```csharp
+LockedRuntimeState.LockForTurn(card);
+```
+
+锁定效果：
+- 本回合不可打出。
+- 本回合结束时自动获得单回合保留。
+- `AfterTurnEnd` 后清理本回合锁定状态。
+
+### 4.2 查询与解锁
+
+```csharp
+var locked = LockedRuntimeState.IsLocked(card);
+var count = LockedRuntimeState.CountLockedInHand(Owner);
+LockedRuntimeState.Unlock(card);
+```
+
+## 5) 咏唱 Chant
+
+### 5.1 总规则
+
+咏唱牌要实现 `IChantCard`。
+
+关键约定：
+- 初次打出时，`OnPlay` 不结算主效果。
+- 初次打出后，`ChantScheduler` 自动把牌放回手牌最右侧并锁定。
+- 如果回合结束时该牌仍在手牌中，则捕获当时的 Flow 快照。
+- 下回合开始、正常抽牌前，按手牌从左到右调用 `ResolveChant`。
+- 触发后默认进入弃牌堆；若带 `Exhaust` 关键词则进入消耗堆。
+
+### 5.2 最小咏唱牌模板
+
+```csharp
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using BaseLib.Utils.Attributes;
+using MajouMonogatari_STS2mods.Characters.Cecily.Cards;
+using MajouMonogatari_STS2mods.Shared.Keywords.Chant;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.ValueProps;
+
+namespace MajouMonogatari_STS2mods.Characters.Cecily.Cards.Common;
+
+[CustomID(CecilyIds.ShallowBreatheCard)]
+public class CecilyShallowBreatheCard()
+    : CecilyCard(1, CardType.Skill, CardRarity.Common, TargetType.Self), IChantCard
+{
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new BlockVar(10, ValueProp.Move)
+    ];
+
+    protected override Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        // 初次打出只负责“开始咏唱”；主效果写在 ResolveChant。
+        return Task.CompletedTask;
+    }
+
+    public async Task ResolveChant(PlayerChoiceContext choiceContext, ChantResolutionContext chantContext)
+    {
+        var ownerCreature = Owner?.Creature;
+        if (ownerCreature == null)
+        {
+            return;
+        }
+
+        await CreatureCmd.GainBlock(ownerCreature, DynamicVars.Block, this, false);
+    }
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Block.UpgradeValueBy(4m);
+    }
+}
+```
+
+### 5.3 咏唱牌读取 Flow
+
+咏唱牌的 Flow 判断不使用打出瞬间，而使用回合结束自动弃牌前的手牌位置：
+
+```csharp
+public async Task ResolveChant(PlayerChoiceContext choiceContext, ChantResolutionContext chantContext)
+{
+    var ownerCreature = Owner?.Creature;
+    if (ownerCreature == null)
+    {
+        return;
+    }
+
+    if (chantContext.FlowSnapshot?.IsRightmost == true)
+    {
+        await BreezeService.Gain(ownerCreature, 5, ownerCreature, this);
+    }
+}
+```
+
+### 5.4 改写咏唱触发后的去向
+
+默认触发后进弃牌堆/消耗堆。若某张能力或牌要改写去向，可设置：
+
+```csharp
+chantContext.ResultPileType = PileType.Hand;
+chantContext.ResultPilePosition = CardPilePosition.Top;
+```
+
+如果效果已经自行移动了这张牌，并且不希望调度器再处理默认移动：
+
+```csharp
+chantContext.SuppressDefaultMove = true;
+```
+
+### 5.5 立刻触发咏唱
+
+给“契约”“暴风眼”等牌用：
+
+```csharp
+await ChantScheduler.ResolveNow(choiceContext, selectedCard);
+```
+
+如果需要指定目标或外部 Flow 快照：
+
+```csharp
+await ChantScheduler.ResolveNow(choiceContext, selectedCard, target, flowSnapshot);
+```
+
+注意：`ResolveNow` 默认不移动卡牌，只执行 `ResolveChant`。需要丢弃、消耗或回手时，由调用方自己处理。
+
+## 6) 推荐实现顺序
+
+新增一张机制牌时建议按这个顺序写：
+1. 先声明接口：`IConnectionCard` / `IChantCard` / 普通牌无需接口。
+2. 写基础数值与主效果。
+3. 若需要连接，用 `ConnectionRuntimeState.TryResolve` + `ConsumeTriggerCount`。
+4. 若需要平移，只调用 `HandOrderService`。
+5. 若需要锁定，只调用 `LockedRuntimeState.LockForTurn`。
+6. 若是咏唱牌，把主效果放进 `ResolveChant`，`OnPlay` 保持空结算。
+7. 最后跑 `dotnet build MajouMonogatari-STS2mods.csproj`。

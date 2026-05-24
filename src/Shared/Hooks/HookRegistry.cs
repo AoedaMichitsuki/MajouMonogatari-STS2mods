@@ -1,13 +1,17 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using Godot;
 using HarmonyLib;
 using MajouMonogatari_STS2mods.Characters.Cecily;
 using MajouMonogatari_STS2mods.Characters.Cecily.Relics;
 using MajouMonogatari_STS2mods.Shared.Animation;
 using MajouMonogatari_STS2mods.Shared.Core;
+using MajouMonogatari_STS2mods.Shared.Keywords.Chant;
+using MajouMonogatari_STS2mods.Shared.Keywords.Connection;
 using MajouMonogatari_STS2mods.Shared.Keywords.Flow;
+using MajouMonogatari_STS2mods.Shared.Keywords.Locked;
 using MajouMonogatari_STS2mods.Shared.Resources.Breeze;
 using MajouMonogatari_STS2mods.Shared.Rules;
 using MegaCrit.Sts2.Core.Combat;
@@ -76,6 +80,16 @@ public static class HookRegistry
             // 出牌前后：绑定/清理动画上下文与 Flow 快照。
             PatchByName(harmony, hookType, "BeforeCardPlayed", prefixName: nameof(BeforeCardPlayedPrefix));
             PatchByName(harmony, hookType, "AfterCardPlayed", nameof(AfterCardPlayedPostfix));
+            // 手牌/跨回合机制：连接回合状态、咏唱延迟、锁定保留。
+            PatchByName(harmony, hookType, "BeforeSideTurnStart", prefixName: nameof(BeforeSideTurnStartPrefix));
+            PatchByName(harmony, hookType, "BeforeHandDraw", nameof(BeforeHandDrawPostfix));
+            PatchByName(harmony, hookType, "BeforeTurnEnd", nameof(BeforeTurnEndPostfix));
+            PatchByName(harmony, hookType, "AfterTurnEnd", nameof(AfterTurnEndPostfix));
+            PatchByName(
+                harmony,
+                hookType,
+                "ModifyCardPlayResultPileTypeAndPosition",
+                postfixName: nameof(ModifyCardPlayResultPileTypeAndPositionPostfix));
             // 角色资源相关：挡格触发遗物加微风；战斗开始重置状态。
             PatchByName(harmony, hookType, "AfterBlockGained", nameof(AfterBlockGainedPostfix));
             PatchByName(harmony, hookType, "BeforeCombatStart", nameof(BeforeCombatStartPostfix));
@@ -230,6 +244,12 @@ public static class HookRegistry
             return;
         }
 
+        if (LockedRuntimeState.ShouldBlockPlay(card, ref preventer))
+        {
+            __result = false;
+            return;
+        }
+
         if (BreezePlayRule.ShouldBlockPlay(card, ref preventer))
         {
             __result = false;
@@ -248,6 +268,8 @@ public static class HookRegistry
         }
 
         CreatureAnimationRuntime.BeginCardPlay(cardPlay);
+        ConnectionRuntimeState.CaptureForPlay(cardPlay);
+        ChantScheduler.StageFromPlay(cardPlay);
 
         // Snapshot by CardPlay so OnPlay always reads the exact play instance.
         FlowRuntimeState.CaptureFromHand(cardPlay);
@@ -259,9 +281,66 @@ public static class HookRegistry
     /// </summary>
     private static void AfterCardPlayedPostfix(CombatState combatState, PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        ConnectionRuntimeState.RecordPlayed(cardPlay);
         CreatureAnimationRuntime.EndCardPlay(cardPlay);
         FlowRuntimeState.Clear(cardPlay);
         FlowRuntimeState.RefreshFromHand(combatState);
+    }
+
+    private static void BeforeSideTurnStartPrefix(CombatState combatState, CombatSide side)
+    {
+        ConnectionRuntimeState.BeginTurn(combatState, side);
+    }
+
+    private static void BeforeHandDrawPostfix(
+        CombatState combatState,
+        Player player,
+        PlayerChoiceContext playerChoiceContext,
+        ref Task __result)
+    {
+        __result = ResolveChantBeforeHandDraw(__result, playerChoiceContext, player);
+    }
+
+    private static async Task ResolveChantBeforeHandDraw(Task original, PlayerChoiceContext playerChoiceContext, Player player)
+    {
+        await original;
+        await ChantScheduler.ResolveDueBeforeHandDraw(playerChoiceContext, player);
+    }
+
+    private static void BeforeTurnEndPostfix(CombatState combatState, CombatSide side, ref Task __result)
+    {
+        __result = PrepareHandKeywordsBeforeTurnEnd(__result, combatState, side);
+    }
+
+    private static async Task PrepareHandKeywordsBeforeTurnEnd(Task original, CombatState combatState, CombatSide side)
+    {
+        await original;
+        ChantScheduler.PrepareForNextTurn(combatState, side);
+        LockedRuntimeState.ApplyRetainForSide(combatState, side);
+    }
+
+    private static void AfterTurnEndPostfix(CombatState combatState, CombatSide side, ref Task __result)
+    {
+        __result = ClearExpiredHandKeywordsAfterTurnEnd(__result, combatState, side);
+    }
+
+    private static async Task ClearExpiredHandKeywordsAfterTurnEnd(Task original, CombatState combatState, CombatSide side)
+    {
+        await original;
+        LockedRuntimeState.ClearExpiredForSide(combatState, side);
+    }
+
+    private static void ModifyCardPlayResultPileTypeAndPositionPostfix(
+        CardModel card,
+        bool isAutoPlay,
+        ref (PileType, CardPilePosition) __result)
+    {
+        if (!ChantScheduler.ShouldReturnToHandOnPlay(card, isAutoPlay))
+        {
+            return;
+        }
+
+        __result = (PileType.Hand, CardPilePosition.Bottom);
     }
 
     /// <summary>
@@ -299,6 +378,9 @@ public static class HookRegistry
     private static void BeforeCombatStartPostfix(object runState, CombatState combatState)
     {
         FlowRuntimeState.ClearAll();
+        ConnectionRuntimeState.ClearAll();
+        ChantScheduler.ClearAll();
+        LockedRuntimeState.ClearAll();
         BreezeService.ResetForCombat(combatState);
     }
 
