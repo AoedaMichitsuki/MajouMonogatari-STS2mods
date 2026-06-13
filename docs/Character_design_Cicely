@@ -102,7 +102,7 @@ At the start of your turn, if Chant was triggered this turn, add a random Skill 
 Whenever you gain a Status card, transform it into Turbulence. (Innate.)
 绝对真空 Absolute Vacuum：能力牌 费用 1 (0) 固有。在你的手牌中添加两张【真空】。每个回合结束时，若你手中没有任何锁定中的卡牌，下回合开始时额外获得 1 点能量。
 Innate. Add 2 Vacuo into your hand. At the end of your turn, if you have no Locked cards in hand, gain 1 Energy at the start of your next turn.
-【真空】 Vacuo：状态牌 此牌无法被从手牌中打出。无法逃脱。当你抽到此牌时，锁定。
+【真空】 Vacuo：技能牌 此牌无法被从手牌中打出。无法逃脱。当你抽到此牌时，锁定。
 Unplayable. Unescapable. When Drawn, this card becomes Locked.
 远距共鸣 Telepathy：能力牌 费用2 “连接”判定不再要求“上一张”，而是改为“本回合打出过的任意一张”。虚无（）
 Link conditions no longer require the "previous card," but instead check "any card played this turn." Ethereal. (No longer Ethereal.)
@@ -120,7 +120,7 @@ You cannot gain Breeze this turn. Gain 4 Block for each Breeze you have. Lose al
 Chant. Draw 2 cards. Flow (Right): Draw 1 (2) card(s).
 林中舞 Twiggy Dance：技能牌 费用2（1）本回合，每当你成功完全格挡一次攻击，在下回合开始时获得1层荆棘。流场（左）：获得1点能量
 This turn, whenever you successfully Full Block an attack, gain 1 Thorns at the start of your next turn. Flow (Left): Gain 1 Energy.
-毒素之风 Toxins：技能牌 费用2 消耗2点【微风】，给予所有敌人2层易伤，给予所有敌人2层虚弱，流场（空）：所有敌人在本回合失去6点力量。消耗（）
+毒素之风 Toxins：技能牌 费用0 消耗2点【微风】，给予所有敌人2层易伤，给予所有敌人2层虚弱，流场（空）：所有敌人在本回合失去6点力量。消耗（）
 Lose 2 Breeze. Apply 2 Vulnerable and 2 Weak to ALL enemies. Flow (Vain): ALL enemies lose 6 Strength this turn. Exhaust. (No longer Exhausts.)
 准备时间 Set-up Time：技能牌 费用1 你手中每有一张锁定中的卡牌，获得1点能量。（保留）
 Gain 1 Energy for each Locked card in your hand. (Retain.)
