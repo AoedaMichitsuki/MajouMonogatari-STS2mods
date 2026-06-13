@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models;
 namespace MajouMonogatari_STS2mods.Characters.Cecily.Cards.Special;
 
 [CustomID(CecilyIds.VacuoCard)]
-public class CecilyVacuoCard() : CecilyCard(-1, CardType.Status, CardRarity.Status, TargetType.None)
+public class CecilyVacuoCard() : CecilyCard(-1, CardType.Curse, CardRarity.Curse, TargetType.None)
 {
     public override int MaxUpgradeLevel => 0;
 
