@@ -9,8 +9,17 @@
   "MAJOUMONOGATARI_STS2MODS_CECILY_SPRING_TUFT.description": "获得 {Block:diff()} 点[gold]格挡[/gold]，重复 {Repeat:diff()} 次。[kw]流场（左）[/kw]：抽 [blue]1[/blue]。 [kw]流场（右）[/kw]：弃 [blue]1[/blue]。",
   "MAJOUMONOGATARI_STS2MODS_CECILY_CONDENSATION.title": "凝聚",
   "MAJOUMONOGATARI_STS2MODS_CECILY_CONDENSATION.description": "获得 [blue]{BreezeGain:diff()}[/blue] 点[kw]微风[/kw]。连接：额外获得 [blue]{LinkBreezeGain:diff()}[/blue] 点[kw]微风[/kw]。",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BLOW.title": "吹气",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BLOW.description": "选择一张手牌。[kw]平移（右）[/kw] [blue]{Shift:diff()}[/blue]。",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BLOW.selectionScreenPrompt": "选择一张要向右平移的牌。",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_LONGING.title": "憧憬",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_LONGING.description": "[kw]咏唱[/kw]。[kw]流场（右）[/kw]：获得 [blue]{FlowBreezeGain:diff()}[/blue] 点[kw]微风[/kw]。",
   "MAJOUMONOGATARI_STS2MODS_CECILY_TRAP.title": "陷阱",
   "MAJOUMONOGATARI_STS2MODS_CECILY_TRAP.description": "本回合获得 [blue]{Thorns:diff()}[/blue] 点[kw]荆棘[/kw]。",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_ABSOLUTE_VACUUM.title": "绝对真空",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_ABSOLUTE_VACUUM.description": "[kw]固有[/kw]。将 [blue]2[/blue] 张[kw]真空[/kw]加入你的手牌。每个回合结束时，若你手中没有任何[kw]锁定[/kw]中的卡牌，下回合开始时额外获得 [blue]1[/blue] 点能量。",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_VACUO.title": "真空",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_VACUO.description": "[kw]无法打出[/kw]。[kw]无法移除[/kw]。当你抽到此牌时，锁定。",
   "MAJOUMONOGATARI_STS2MODS_CECILY_BLOSSOM_WAY.title": "散乱花",
   "MAJOUMONOGATARI_STS2MODS_CECILY_BLOSSOM_WAY.description": "获得 {Block:diff()} 点[gold]格挡[/gold]，重复 {Repeat:diff()} 次。[kw]流场（左）[/kw]：抽 [blue]1[/blue]，其本回合耗能变为 [blue]0[/blue]。 [kw]流场（右）[/kw]：从手牌中选择 [blue]1[/blue] 张牌消耗。"
 }

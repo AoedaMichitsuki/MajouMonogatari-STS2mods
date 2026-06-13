@@ -3,6 +3,7 @@ using BaseLib.Utils.Attributes;
 using BaseLib.Utils;
 using MajouMonogatari_STS2mods.Shared.Art;
 using MajouMonogatari_STS2mods.Shared.Keywords.Connection;
+using MajouMonogatari_STS2mods.Shared.Keywords.Flow;
 using MegaCrit.Sts2.Core.Entities.Cards;
 
 namespace MajouMonogatari_STS2mods.Characters.Cecily.Cards;
@@ -20,5 +21,6 @@ public abstract class CecilyCard(int cost, CardType type, CardRarity rarity, Tar
     public override string BetaPortraitPath =>
         AssetPathUtil.ResolveOrFallback(CecilyArtProvider.Instance.GetCardBetaPortraitPath(Id.Entry), base.BetaPortraitPath);
 
-    protected override bool ShouldGlowGoldInternal => ConnectionRuntimeState.ShouldGlow(this);
+    protected override bool ShouldGlowGoldInternal =>
+        ConnectionRuntimeState.ShouldGlow(this) || FlowRuntimeState.ShouldGlow(this);
 }

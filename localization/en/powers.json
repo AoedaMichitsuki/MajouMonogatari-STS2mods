@@ -1,5 +1,7 @@
 {
   "MAJOUMONOGATARI_STS2MODS_CECILY_BREEZE_POWER.title": "Breeze",
   "MAJOUMONOGATARI_STS2MODS_CECILY_BREEZE_POWER.description": "A resource used by Cecily cards.",
-  "MAJOUMONOGATARI_STS2MODS_CECILY_BREEZE_POWER.smartDescription": "Current [gold]Breeze[/gold]: [blue]{Amount}[/blue]."
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BREEZE_POWER.smartDescription": "Current [gold]Breeze[/gold]: [blue]{Amount}[/blue].",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_ABSOLUTE_VACUUM_POWER.title": "Absolute Vacuum",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_ABSOLUTE_VACUUM_POWER.description": "At the end of each turn, if there are no [kw]Locked[/kw] cards in your hand, gain [blue]{Amount}[/blue] Energy at the start of your next turn."
 }

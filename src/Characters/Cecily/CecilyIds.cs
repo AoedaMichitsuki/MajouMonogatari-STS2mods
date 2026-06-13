@@ -17,9 +17,14 @@ public static class CecilyIds
     public const string WindBulletCard = Prefix + "_WIND_BULLET";
     public const string SpringTuftCard = Prefix + "_SPRING_TUFT";
     public const string CondensationCard = Prefix + "_CONDENSATION";
+    public const string BlowCard = Prefix + "_BLOW";
+    public const string LongingCard = Prefix + "_LONGING";
     public const string TrapCard = Prefix + "_TRAP";
+    public const string AbsoluteVacuumCard = Prefix + "_ABSOLUTE_VACUUM";
+    public const string VacuoCard = Prefix + "_VACUO";
     public const string BlossomWayCard = Prefix + "_BLOSSOM_WAY";
 
     public const string BreezePower = Prefix + "_BREEZE_POWER";
+    public const string AbsoluteVacuumPower = Prefix + "_ABSOLUTE_VACUUM_POWER";
     public const string BornMagicWindRelic = Prefix + "_BORN_MAGIC_WIND";
 }

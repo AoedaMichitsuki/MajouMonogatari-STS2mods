@@ -9,8 +9,17 @@
   "MAJOUMONOGATARI_STS2MODS_CECILY_SPRING_TUFT.description": "Gain {Block:diff()} [gold]Block[/gold] {Repeat:diff()} times. [kw]Flow (Left)[/kw]: draw [blue]1[/blue]. [kw]Flow (Right)[/kw]: discard [blue]1[/blue].",
   "MAJOUMONOGATARI_STS2MODS_CECILY_CONDENSATION.title": "Condensation",
   "MAJOUMONOGATARI_STS2MODS_CECILY_CONDENSATION.description": "Gain [blue]{BreezeGain:diff()}[/blue] [kw]Breeze[/kw]. [kw]Connection[/kw]: gain [blue]{LinkBreezeGain:diff()}[/blue] [kw]Breeze[/kw].",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BLOW.title": "Blow",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BLOW.description": "Choose a card in your hand. [kw]Shift (Right)[/kw] [blue]{Shift:diff()}[/blue].",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_BLOW.selectionScreenPrompt": "Choose a card to Shift right.",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_LONGING.title": "Longing",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_LONGING.description": "[kw]Chant[/kw]. [kw]Flow (Right)[/kw]: gain [blue]{FlowBreezeGain:diff()}[/blue] [kw]Breeze[/kw].",
   "MAJOUMONOGATARI_STS2MODS_CECILY_TRAP.title": "Trap",
   "MAJOUMONOGATARI_STS2MODS_CECILY_TRAP.description": "Gain [blue]{Thorns:diff()}[/blue] [kw]Thorns[/kw] this turn.",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_ABSOLUTE_VACUUM.title": "Absolute Vacuum",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_ABSOLUTE_VACUUM.description": "[kw]Innate[/kw]. Add [blue]2[/blue] [kw]Vacuo[/kw] to your hand. At the end of each turn, if there are no [kw]Locked[/kw] cards in your hand, gain [blue]1[/blue] Energy at the start of your next turn.",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_VACUO.title": "Vacuo",
+  "MAJOUMONOGATARI_STS2MODS_CECILY_VACUO.description": "[kw]Unplayable[/kw]. [kw]Eternal[/kw]. When drawn, this card becomes [kw]Locked[/kw].",
   "MAJOUMONOGATARI_STS2MODS_CECILY_BLOSSOM_WAY.title": "Blossom Way",
   "MAJOUMONOGATARI_STS2MODS_CECILY_BLOSSOM_WAY.description": "Gain {Block:diff()} [gold]Block[/gold] {Repeat:diff()} times. [kw]Flow (Left)[/kw]: draw [blue]1[/blue], it costs [blue]0[/blue] this turn. [kw]Flow (Right)[/kw]: Exhaust [blue]1[/blue] card from your hand."
 }

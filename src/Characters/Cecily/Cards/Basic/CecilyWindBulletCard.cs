@@ -13,11 +13,14 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace MajouMonogatari_STS2mods.Characters.Cecily.Cards.Basic;
 
 [CustomID(CecilyIds.WindBulletCard)]
-public class CecilyWindBulletCard() : CecilyCard(0, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy), IBreezeCostCard
+public class CecilyWindBulletCard() : CecilyCard(0, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy), IBreezeCostCard, IFlowCard
 {
     private const string FlowGainVarName = "FlowGain";
 
     public int BreezeCost => 2;
+    public bool HasFlowLeft => true;
+    public bool HasFlowRight => false;
+    public bool HasFlowVain => false;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

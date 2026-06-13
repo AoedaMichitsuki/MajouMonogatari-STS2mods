@@ -14,8 +14,12 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace MajouMonogatari_STS2mods.Characters.Cecily.Cards.Rare;
 
 [CustomID(CecilyIds.BlossomWayCard)]
-public class CecilyBlossomWayCard() : CecilyCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class CecilyBlossomWayCard() : CecilyCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self), IFlowCard
 {
+    public bool HasFlowLeft => true;
+    public bool HasFlowRight => true;
+    public bool HasFlowVain => false;
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new BlockVar(2, ValueProp.Move),

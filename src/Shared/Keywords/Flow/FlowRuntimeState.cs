@@ -181,6 +181,30 @@ public static class FlowRuntimeState
         return true;
     }
 
+    public static bool ShouldGlow(CardModel card)
+    {
+        if (card is not IFlowCard flowCard || card?.Owner?.PlayerCombatState?.Hand?.Cards == null)
+        {
+            return false;
+        }
+
+        var handCards = card.Owner.PlayerCombatState.Hand.Cards;
+        for (var i = 0; i < handCards.Count; i++)
+        {
+            if (!ReferenceEquals(handCards[i], card))
+            {
+                continue;
+            }
+
+            var count = handCards.Count;
+            return (flowCard.HasFlowLeft && i == 0) ||
+                   (flowCard.HasFlowRight && i == count - 1) ||
+                   (flowCard.HasFlowVain && count == 1);
+        }
+
+        return false;
+    }
+
     public static bool CaptureFromPile(CardPile pile, CardModel card)
     {
         if (pile == null || card == null)

@@ -4,6 +4,7 @@ using System.Linq;
 using MajouMonogatari_STS2mods.Shared.Keywords.Flow;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 
 namespace MajouMonogatari_STS2mods.Shared.Hand;
@@ -48,7 +49,7 @@ public static class HandOrderService
         var result = new ShiftResult(card, true, originalIndex, newIndex, primaryStepsMoved, before, after);
 
         FlowRuntimeState.RefreshFromHand(card.CombatState);
-        RefreshLocalHandLayout();
+        RefreshLocalHandLayout(pile);
         HandOrderChanged?.Invoke(before, after);
         CardShifted?.Invoke(result);
         return result;
@@ -80,7 +81,7 @@ public static class HandOrderService
         var after = SnapshotIndices(pile.Cards.Where(c => c != null).ToList());
 
         FlowRuntimeState.RefreshFromHand(card.CombatState);
-        RefreshLocalHandLayout();
+        RefreshLocalHandLayout(pile);
         HandOrderChanged?.Invoke(before, after);
         return true;
     }
@@ -121,7 +122,7 @@ public static class HandOrderService
         var after = SnapshotIndices(ordered);
 
         FlowRuntimeState.RefreshFromHand(first.CombatState);
-        RefreshLocalHandLayout();
+        RefreshLocalHandLayout(pile);
         HandOrderChanged?.Invoke(before, after);
         return true;
     }
@@ -150,7 +151,7 @@ public static class HandOrderService
         ReplacePileOrder(hand, sorted);
         var after = SnapshotIndices(sorted);
         FlowRuntimeState.RefreshFromHand(sorted[0].CombatState);
-        RefreshLocalHandLayout();
+        RefreshLocalHandLayout(hand);
         HandOrderChanged?.Invoke(before, after);
         return true;
     }
@@ -228,8 +229,29 @@ public static class HandOrderService
         return result < 0 ? result + divisor : result;
     }
 
-    private static void RefreshLocalHandLayout()
+    private static void RefreshLocalHandLayout(CardPile handPile)
     {
-        NPlayerHand.Instance?.ForceRefreshCardIndices();
+        var hand = NPlayerHand.Instance;
+        if (hand == null || handPile == null)
+        {
+            return;
+        }
+
+        var container = hand.CardHolderContainer;
+        var visualIndex = 0;
+        foreach (var card in handPile.Cards.Where(c => c != null))
+        {
+            if (hand.GetCardHolder(card) is not NHandCardHolder holder ||
+                holder.GetParent() != container ||
+                !holder.Visible)
+            {
+                continue;
+            }
+
+            container.MoveChild(holder, visualIndex);
+            visualIndex++;
+        }
+
+        hand.ForceRefreshCardIndices();
     }
 }

@@ -49,6 +49,9 @@ public class CecilyCondensationCard() : CecilyCard(1, CardType.Skill, CardRarity
         }
 
         var triggerCount = ConnectionRuntimeState.ConsumeTriggerCount(owner);
-        await BreezeService.Gain(ownerCreature, linkBreezeGainVar.IntValue * triggerCount, ownerCreature, this);
+        for (var i = 0; i < triggerCount; i++)
+        {
+            await BreezeService.Gain(ownerCreature, linkBreezeGainVar.IntValue, ownerCreature, this);
+        }
     }
 }
