@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using MegaCrit.Sts2.Core.Context;
 using MajouMonogatari_STS2mods.Shared.Core;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -32,14 +31,14 @@ public static class FlowRuntimeState
     private static readonly Dictionary<string, FlowSnapshot> SnapshotByUniqueId = new(StringComparer.Ordinal);
     private static readonly PropertyInfo CardUniqueIdProperty = typeof(CardModel).GetProperty("UniqueId");
 
-    public static void RefreshFromHand(CombatState combatState)
+    public static void RefreshFromHand(ICombatState combatState)
     {
         if (combatState == null)
         {
             return;
         }
 
-        var player = LocalContext.GetMe(combatState);
+        var player = combatState.Players.Count > 0 ? combatState.Players[0] : null;
         if (player == null)
         {
             return;

@@ -31,7 +31,7 @@ public class CecilyAbsoluteVacuumCard() : CecilyCard(1, CardType.Power, CardRari
         for (var i = 0; i < VacuoCardsToAdd; i++)
         {
             var vacuo = CombatState.CreateCard<CecilyVacuoCard>(owner);
-            await CardPileCmd.AddGeneratedCardToCombat(vacuo, PileType.Hand, addedByPlayer: true);
+            await CardPileCmd.AddGeneratedCardToCombat(vacuo, PileType.Hand, owner);
         }
     }
 

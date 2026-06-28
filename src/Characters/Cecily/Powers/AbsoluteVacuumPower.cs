@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils.Attributes;
 using MajouMonogatari_STS2mods.Shared.Keywords.Locked;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -17,7 +19,7 @@ public class AbsoluteVacuumPower : CecilyPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         var player = Owner?.Player;
         if (side == CombatSide.Player && player != null && LockedRuntimeState.CountLockedInHand(player) == 0)
@@ -29,7 +31,7 @@ public class AbsoluteVacuumPower : CecilyPower
         return Task.CompletedTask;
     }
 
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         if (player != Owner?.Player || _pendingEnergy <= 0)
         {

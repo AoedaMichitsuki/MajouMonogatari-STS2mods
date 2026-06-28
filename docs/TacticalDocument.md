@@ -572,3 +572,116 @@ await ChantScheduler.ResolveNow(choiceContext, selectedCard, target, flowSnapsho
 5. 若需要锁定，只调用 `LockedRuntimeState.LockForTurn`。
 6. 若是咏唱牌，把主效果放进 `ResolveChant`，`OnPlay` 保持空结算。
 7. 最后跑 `dotnet build MajouMonogatari-STS2mods.csproj`。
+
+---
+
+# STS2 已确认接口与实现规范
+
+## 1) 手牌顺序：模型顺序与 UI 顺序必须同时维护
+
+STS2 手牌存在两层顺序：
+
+- 逻辑顺序：`CardPile.Cards`
+- 视觉顺序：`NPlayerHand.Instance.CardHolderContainer` 的 child 顺序
+
+Flow、连接、平移等机制应以 `CardPile.Cards` 作为逻辑来源。但如果效果会改变手牌顺序，不能只改 `CardPile.Cards` 后调用 `NPlayerHand.Instance.ForceRefreshCardIndices()`。
+
+`ForceRefreshCardIndices()` 只会刷新布局目标，不会把 holder 节点按新的 `CardPile.Cards` 顺序重排。因此手牌移动、交换、排序之后，必须同步本地手牌 UI：
+
+1. 遍历新的 `handPile.Cards` 顺序。
+2. 用 `NPlayerHand.Instance.GetCardHolder(card)` 找到对应 holder。
+3. 对仍在 `CardHolderContainer` 中的可见 `NHandCardHolder` 调用 `CardHolderContainer.MoveChild(holder, visualIndex)`。
+4. 最后调用 `NPlayerHand.Instance.ForceRefreshCardIndices()`。
+
+项目中统一通过 `HandOrderService` 做手牌平移、交换与排序。以后不要在卡牌里直接手动 `RemoveInternal` / `AddInternal` 改手牌顺序；需要移动手牌时只调用：
+
+- `HandOrderService.Shift(...)`
+- `HandOrderService.MoveToIndex(...)`
+- `HandOrderService.MoveToLeftmost(...)`
+- `HandOrderService.MoveToRightmost(...)`
+- `HandOrderService.Swap(...)`
+- `HandOrderService.Sort(...)`
+
+## 2) 诅咒牌与“不可移除/不可变化”
+
+STS2 原生“不能从牌组移除或变化”的效果由 `CardKeyword.Eternal` 提供。
+
+已确认接口：
+
+```csharp
+public bool IsRemovable => !Keywords.Contains(CardKeyword.Eternal);
+```
+
+牌组移除选择使用 `CardSelectCmd.FromDeckForRemoval(...)`，其过滤条件包含 `c.IsRemovable`。因此带有 `CardKeyword.Eternal` 的牌不会进入常规移除选项。
+
+若自定义牌需要作为原生诅咒参与游戏系统，应使用：
+
+```csharp
+base(-1, CardType.Curse, CardRarity.Curse, TargetType.None)
+```
+
+若该诅咒还需要不可打出且不可移除/不可变化，使用：
+
+```csharp
+public override IEnumerable<CardKeyword> CanonicalKeywords =>
+[
+    CardKeyword.Unplayable,
+    CardKeyword.Eternal
+];
+```
+
+原生参考牌：
+
+- `Greed`
+- `CurseOfTheBell`
+- `Enthralled`
+- `AscendersBane`
+
+注意：`NoEscape` 是死灵绑定者技能牌“无处可逃”，效果是施加 `DoomPower`，不是诅咒的不可移除机制。不要把它当作诅咒接口使用。
+
+## 3) 真空牌实现规范
+
+`Vacuo`/真空类负面牌应按诅咒实现，而不是按状态牌实现：
+
+```csharp
+public class CecilyVacuoCard() : CecilyCard(-1, CardType.Curse, CardRarity.Curse, TargetType.None)
+```
+
+推荐关键字：
+
+```csharp
+CardKeyword.Unplayable,
+CardKeyword.Eternal
+```
+
+这样真空牌会：
+
+- 被游戏视为诅咒；
+- 使用诅咒牌面与诅咒分类；
+- 参与诅咒相关筛选、排序和效果；
+- 通过 `Eternal` 自动获得“不能移除或变化”的原生行为。
+
+若真空牌还需要“锁定”手牌位置，继续使用项目内锁定运行时：
+
+```csharp
+LockedRuntimeState.LockForTurn(this);
+```
+
+## 4) 优先使用 BaseLib/CommonActions
+
+能用 BaseLib 提供的动作封装时，优先使用 BaseLib，而不是直接调用底层命令。
+
+已确认可用：
+
+```csharp
+CommonActions.CardAttack(...).Execute(choiceContext)
+CommonActions.CardBlock(...).Execute(choiceContext)
+CommonActions.ApplySelf<TPower>(card, amount?).Execute(choiceContext)
+```
+
+推荐规则：
+
+- 攻击牌优先用 `CommonActions.CardAttack(...)`，这样更接近原生攻击结算链路。
+- 格挡牌优先用 `CommonActions.CardBlock(...)`。
+- 给自己施加 Power 的能力牌优先用 `CommonActions.ApplySelf<TPower>(...)`。
+- 只有在 BaseLib 动作无法表达需求时，才直接使用 `CreatureCmd`、`PowerCmd`、`CardPileCmd` 等底层命令。

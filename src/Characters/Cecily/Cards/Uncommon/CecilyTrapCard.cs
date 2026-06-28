@@ -33,7 +33,7 @@ public class CecilyTrapCard() : CecilyCard(1, CardType.Skill, CardRarity.Uncommo
             return;
         }
 
-        await PowerCmd.Apply<ThornsPower>(ownerCreature, thornsVar.IntValue, ownerCreature, this, false);
+        await PowerCmd.Apply<ThornsPower>(choiceContext, ownerCreature, thornsVar.IntValue, ownerCreature, this, false);
     }
 
     protected override void OnUpgrade()
